@@ -1,0 +1,23 @@
+https://home.openweathermap.org
+UserName: JNA_WeatherTeam
+Password: Team10Weather
+Company: WeatherTeam10
+Purpose: Education/Science
+API Key: 2efb9211ec2c1db3d00ea14c0d24c30d
+
+Dear Customer,
+
+Your account and API key are activated for operating with OpenWeatherMap Free weather services.
+
+Endpoint for any API calls
+
+api.openweathermap.org
+
+Example of API call
+
+api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=2efb9211ec2c1db3d00ea14c0d24c30d
+
+API documentation
+
+http://openweathermap.org/api
+Contact our Helpdesk info@openweathermap.org for any technical issues.
