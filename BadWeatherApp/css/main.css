@@ -6,4 +6,26 @@ body  {
     background-image: url("../images/sunny.jpg");
     background-repeat: no-repeat;
     background-size: 100% 400px;
+    font-family: Helvetica,Arial,sans-serif
+}
+.location{
+    height: 95px;
+    
+}
+.city{
+    font-size: 46px;
+    font-weight: bold;
+    float: left;
+    display: inline-block;
+    letter-spacing: -3px;
+    text-shadow: #2D343A 0px 1px 0px;
+    width: 100%;
+    
+}
+.country{
+    float: left;
+    font-size: 18px;
+    font-weight: bold;
+    text-shadow: #2D343A 0px 1px 0px;
+    width: 100%;
 }
