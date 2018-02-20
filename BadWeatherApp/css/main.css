@@ -1,0 +1,9 @@
+main {
+    margin: auto;
+    width: 80%;
+}
+body  {
+    background-image: url("../images/sunny.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 400px;
+}
