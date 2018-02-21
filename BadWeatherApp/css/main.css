@@ -29,3 +29,60 @@ body  {
     text-shadow: #2D343A 0px 1px 0px;
     width: 100%;
 }
+
+.large-nav-text {
+    font-size: 20px;
+    color: rgb(49, 49, 49);
+}
+
+#logo1{
+    width : 50px;
+}
+
+.nav-row{
+    display : flex;
+    width : 100%;
+
+}
+
+#navbar{
+    background:rgba(255, 255, 255, 0.712);
+}
+
+.filler{
+    flex : 1;
+}
+
+#site-name{
+    font-size: 30px;
+    color : rgb(56, 54, 54);
+    font-family: cursive;
+    font-weight: bold;
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+}
+
+.main-content{
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px;
+}
+
+.tab-row{
+    display: flex;
+}
+
+.icon-weather{
+    width : 70px;
+}
+
+.td{
+    width : 20%;
+}
+
+#current-weather-table{
+    width : 100%;
+}

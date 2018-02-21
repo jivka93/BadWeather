@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
     <link rel="stylesheet" href="css/main.css">
     
@@ -17,19 +17,56 @@
 <body>
     <main>
             <link rel="main" type="text/css" href="main.css">
-        <nav class="navbar navbar-inverse">
-            <div class="container-fluid">
+            
+        <nav class="navbar" id="navbar">
+                <dic class="nav-row">
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="#"><img src="" alt="BadWeather"></a>
+                    <a class="navbar-brand" href="#">
+                        <img id="logo1" src="images/logo.png" alt="BadWeather">
+                    </a>
+                    <span id="site-name">BadWeather</span>
                 </div>
-                <ul class="nav navbar-nav">
-                    <li class="active">
-                        <a href="#">Bulgaria</a>
-                    </li>
-                    <li class="active">
-                        <a href="#">World</a>
-                    </li>
-                </ul>
+                <div class="filler"></div>
+
+                <ul class="nav nav-tabs">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle large-nav-text"
+                              data-toggle="dropdown"
+                              href="#" 
+                              role="button"  
+                              aria-haspopup="true" 
+                              aria-expanded="false">
+                              Bulgaria
+                            </a>
+                          <div class="dropdown-menu">
+                            <a class="dropdown-item" id="sofia-city" href="#">Sofia</a>
+                            <a class="dropdown-item" id="plovdiv-city"href="#">Plovdiv</a>
+                            <a class="dropdown-item" id="varna-city"href="#">Varna</a>
+                            <a class="dropdown-item" id="burgas-city"href="#">Burgas</a>
+                            <a class="dropdown-item" id="stara-zagora-city"href="#">Stara Zagora</a>
+                            <a class="dropdown-item" id="veliko-tarnovo-city"href="#">Veliko Tarnovo</a>
+                          </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle large-nav-text" 
+                                data-toggle="dropdown" 
+                                href="#" 
+                                role="button" 
+                                aria-haspopup="true" 
+                                aria-expanded="false">World
+                            </a>
+                            <div class="dropdown-menu">
+                                    <a class="dropdown-item" id="london-city" href="#">London</a>
+                                    <a class="dropdown-item" id="paris-city" href="#">Paris</a>
+                                    <a class="dropdown-item" id="berlin-city" href="#">Berlin</a>
+                                    <a class="dropdown-item" id="rome-city" href="#">Rome</a>
+                                    <a class="dropdown-item" id="brussels-city" href="#">Brussels</a>
+                                    <a class="dropdown-item" id="amsterdam-city" href="#">Amsterdam</a>
+                            </div>
+                          </li>
+                      </ul>
+
+
                 <div class="navbar-form navbar-right">
                     <div class="form-group">
                         <input type="text" class="form-control" placeholder="Location">
@@ -38,14 +75,90 @@
                 </div>
             </div>
         </nav>
+
+        
         <div class ="location">
-        <div class="city">
-            <span class="name">CityName</span>
+            <div class="city">
+                <span class="name">
+                    CityName
+                </span>
+            </div>
+            <div class="country">
+                CountryName               
+            </div>
         </div>
-        <div class="country">CountryName</div>
-    </div>
+
+        <div class="main-content">
+            <div class="tab-row">
+                <button class="time-span">Current</button>
+                <button class="time-span">5 days</button>
+                <button class="time-span">16 days</button>
+            </div>
+            <div class="content">
+                
+                <div class="content-current">
+                    <table id="current-weather-table">
+                        <tr class="content-row" id="row1">
+                            <td class="time td">
+                                <div class="hour">16:00</div>
+                                <div class="date">21/02/18</div>
+                            </td>
+                            <td class="weather td">
+                                    <div class="weather-icon">
+                                        <img class="icon-weather" id="cloudy" src="images/cloud.png" alt="BadWeather">
+                                    </div>
+                                    <div class="weather">Cloudy</div>
+                            </td>
+                            <td class="temperature td">
+                                    <div class="degrees">4*</div>
+                                    <div >temperature</div>
+                            </td>
+                            <td class="wind td">
+                                    <div class="wind-speed">6 m/s</div>
+                                    <div >wind speed</div>
+                            </td>
+                        </tr>
+                        <tr class="content-row" id="row1">
+                                <td class="time td">
+                                    <div class="hour">16:00</div>
+                                    <div class="date">21/02/18</div>
+                                </td>
+                                <td class="weather td">
+                                        <div class="weather-icon">
+                                            <img class="icon-weather" id="cloudy" src="images/cloud.png" alt="BadWeather">
+                                        </div>
+                                        <div class="weather">Cloudy</div>
+                                </td>
+                                <td class="temperature td">
+                                        <div class="degrees">4*</div>
+                                        <div >temperature</div>
+                                </td>
+                                <td class="wind td">
+                                        <div class="wind-speed">6 m/s</div>
+                                        <div >wind speed</div>
+                                </td>
+                            </tr>
+                    </table>
+
+                </div>
+
+                <div class="content-five-days">
+                    
+                </div>
+
+                <div class="content-sixteen-days">
+                    
+                </div>
+
+            </div>
+        </div>
+
+
     </main>
-    
+
+    <script src="js/cors.js" type="text/javascript"></script>
+    <script src="js/main.js" type="text/javascript"></script>
+
 </body>
 
 </html>
