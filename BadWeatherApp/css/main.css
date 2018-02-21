@@ -1,19 +1,23 @@
 main {
     margin: auto;
     width: 80%;
+    font-family: Helvetica, Arial, sans-serif;
 }
-body  {
+
+body {
     background-image: url("../images/sunny.jpg");
     background-repeat: no-repeat;
     background-size: 100% 400px;
-    font-family: Helvetica,Arial,sans-serif;
-    background-color : rgb(233, 233, 233);
+    font-family: Helvetica, Arial, sans-serif;
+    background-color: rgb(233, 233, 233);
 }
-.location{
-    height: 95px;
+
+.location {
+    height: 120px;
     color: white;
 }
-.city{
+
+.city {
     font-size: 46px;
     font-weight: bold;
     float: left;
@@ -21,9 +25,9 @@ body  {
     letter-spacing: -3px;
     text-shadow: #2D343A 0px 1px 0px;
     width: 100%;
-    
 }
-.country{
+
+.country {
     float: left;
     font-size: 18px;
     font-weight: bold;
@@ -34,70 +38,73 @@ body  {
 .large-nav-text {
     font-size: 20px;
     color: rgb(49, 49, 49);
+    font-family: Helvetica, Arial, sans-serif;
 }
 
-#logo1{
-    width : 50px;
+#logo1 {
+    width: 50px;
 }
 
-.nav-row{
-    display : flex;
-    width : 100%;
-
+.nav-row {
+    display: flex;
+    width: 100%;
 }
 
-#navbar{
-    background:rgba(255, 255, 255, 0.712);
+#navbar {
+    background: rgba(255, 255, 255, 0.712);
 }
 
-.filler{
-    flex : 1;
+.filler {
+    flex: 1;
 }
 
-#site-name{
+#site-name {
     font-size: 30px;
-    color : rgb(56, 54, 54);
+    color: rgb(56, 54, 54);
     font-family: cursive;
     font-weight: bold;
 }
 
-main{
+main {
     display: flex;
     flex-direction: column;
 }
 
-.main-content{
-    display: flex;
-    flex-direction: column;
-    margin-top: 40px;
+.tabs .tab{
+    float: left;
+    color: #454545;
+    display: block;
+    cursor: pointer;
+    font-size: 20px;
+    margin-right: 2px;
+    padding: 15px 30px;
+    text-decoration: none;
+    background-color: #dce8ed;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
 }
 
-.tab-row{
-    display: flex;
+.icon-weather {
+    width: 70px;
 }
 
-.icon-weather{
-    width : 70px;
-}
-
-.td{
-    width : 20%;
-    background:rgba(255, 255, 255, 0.466);
-    border : solid 2px rgb(255, 252, 252);
+.td {
+    width: 20%;
+    background: rgba(255, 255, 255, 0.466);
+    border: solid 2px rgb(255, 252, 252);
     text-align: center;
     color: rgb(63, 62, 62);
 }
 
-#current-weather-table{
-    width : 100%;
+#current-weather-table {
+    width: 100%;
 }
 
-.smaller-text{
-    font-size : 15px;
+.smaller-text {
+    font-size: 15px;
     font-weight: bold;
 }
 
-table tr td .bigger-text{
-
-    font-size : 30px;
+table tr td .bigger-text {
+    font-size: 30px;
 }

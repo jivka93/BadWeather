@@ -7,19 +7,20 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
 
     <link rel="stylesheet" href="css/main.css">
-    
-    
+
+
 </head>
 
 <body>
     <main>
-            <link rel="main" type="text/css" href="main.css">
-            
+        <link rel="main" type="text/css" href="main.css">
+
         <nav class="navbar" id="navbar">
-                <dic class="nav-row">
+            <dic class="nav-row">
                 <div class="navbar-header">
                     <a class="navbar-brand" href="#">
                         <img id="logo1" src="images/logo.png" alt="BadWeather">
@@ -29,42 +30,32 @@
                 <div class="filler"></div>
 
                 <ul class="nav nav-tabs">
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle large-nav-text"
-                              data-toggle="dropdown"
-                              href="#" 
-                              role="button"  
-                              aria-haspopup="true" 
-                              aria-expanded="false">
-                              Bulgaria
-                            </a>
-                          <div class="dropdown-menu">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle large-nav-text" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                            Bulgaria
+                        </a>
+                        <div class="dropdown-menu">
                             <a class="dropdown-item" id="sofia-city" href="#">Sofia</a>
-                            <a class="dropdown-item" id="plovdiv-city"href="#">Plovdiv</a>
-                            <a class="dropdown-item" id="varna-city"href="#">Varna</a>
-                            <a class="dropdown-item" id="burgas-city"href="#">Burgas</a>
-                            <a class="dropdown-item" id="stara-zagora-city"href="#">Stara Zagora</a>
-                            <a class="dropdown-item" id="veliko-tarnovo-city"href="#">Veliko Tarnovo</a>
-                          </div>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle large-nav-text" 
-                                data-toggle="dropdown" 
-                                href="#" 
-                                role="button" 
-                                aria-haspopup="true" 
-                                aria-expanded="false">World
-                            </a>
-                            <div class="dropdown-menu">
-                                    <a class="dropdown-item" id="london-city" href="#">London</a>
-                                    <a class="dropdown-item" id="paris-city" href="#">Paris</a>
-                                    <a class="dropdown-item" id="berlin-city" href="#">Berlin</a>
-                                    <a class="dropdown-item" id="rome-city" href="#">Rome</a>
-                                    <a class="dropdown-item" id="brussels-city" href="#">Brussels</a>
-                                    <a class="dropdown-item" id="amsterdam-city" href="#">Amsterdam</a>
-                            </div>
-                          </li>
-                      </ul>
+                            <a class="dropdown-item" id="plovdiv-city" href="#">Plovdiv</a>
+                            <a class="dropdown-item" id="varna-city" href="#">Varna</a>
+                            <a class="dropdown-item" id="burgas-city" href="#">Burgas</a>
+                            <a class="dropdown-item" id="stara-zagora-city" href="#">Stara Zagora</a>
+                            <a class="dropdown-item" id="veliko-tarnovo-city" href="#">Veliko Tarnovo</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle large-nav-text" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">World
+                        </a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" id="london-city" href="#">London</a>
+                            <a class="dropdown-item" id="paris-city" href="#">Paris</a>
+                            <a class="dropdown-item" id="berlin-city" href="#">Berlin</a>
+                            <a class="dropdown-item" id="rome-city" href="#">Rome</a>
+                            <a class="dropdown-item" id="brussels-city" href="#">Brussels</a>
+                            <a class="dropdown-item" id="amsterdam-city" href="#">Amsterdam</a>
+                        </div>
+                    </li>
+                </ul>
 
 
                 <div class="navbar-form navbar-right">
@@ -73,29 +64,29 @@
                     </div>
 
                 </div>
-            </div>
+                </div>
         </nav>
 
-        
-        <div class ="location">
+
+        <div class="location">
             <div class="city">
                 <span class="name" id="city-name">
                     CityName
                 </span>
             </div>
             <div class="country" id="country-name">
-                CountryName               
+                CountryName
             </div>
         </div>
 
         <div class="main-content">
-            <div class="tab-row">
-                <button class="time-span">Current</button>
-                <button class="time-span">5 days</button>
-                <button class="time-span">16 days</button>
+            <div class="tabs">
+                <a href="/" rel="info-tab-1" class="tab-1 tab">Now</a>
+                <a href="/" rel="info-tab-1" class="tab-1 tab">Tomorrow</a>
+                <a href="/" rel="info-tab-1" class="tab-1 tab">5 days</a>
             </div>
             <div class="content">
-                
+
                 <div class="content-current">
                     <table id="current-weather-table">
                         <tr class="content-row" id="row1">
@@ -104,31 +95,31 @@
                                 <div class="date smaller-text">21/02/18</div>
                             </td>
                             <td class="weather td">
-                                    <div class="weather-icon">
-                                        <img class="icon-weather" id="cloudy" src="images/cloud.png" alt="BadWeather">
-                                    </div>
-                                    <div class="weather smaller-text">Cloudy</div>
+                                <div class="weather-icon">
+                                    <img class="icon-weather" id="cloudy" src="images/cloud.png" alt="BadWeather">
+                                </div>
+                                <div class="weather smaller-text">Cloudy</div>
                             </td>
                             <td class="temperature td">
-                                    <div class="degrees bigger-text">4*</div>
-                                    <div class="smaller-text" >temperature</div>
+                                <div class="degrees bigger-text">4*</div>
+                                <div class="smaller-text">temperature</div>
                             </td>
                             <td class="wind td">
-                                    <div class="wind-speed bigger-text">6 m/s</div>
-                                    <div class="smaller-text" >wind speed</div>
+                                <div class="wind-speed bigger-text">6 m/s</div>
+                                <div class="smaller-text">wind speed</div>
                             </td>
                         </tr>
-                        
+
                     </table>
 
                 </div>
 
                 <div class="content-five-days">
-                    
+
                 </div>
 
                 <div class="content-sixteen-days">
-                    
+
                 </div>
 
             </div>
