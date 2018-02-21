@@ -1,5 +1,8 @@
 function onDataRetrieved(json){
-    console.log(json);
+    var cityName = $("#city-name");
+    cityName.html("London");
+    var countryName = $("#country-name");
+    countryName.html("England");
 }
 
 function onButtonClick() {

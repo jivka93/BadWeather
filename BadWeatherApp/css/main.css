@@ -6,11 +6,12 @@ body  {
     background-image: url("../images/sunny.jpg");
     background-repeat: no-repeat;
     background-size: 100% 400px;
-    font-family: Helvetica,Arial,sans-serif
+    font-family: Helvetica,Arial,sans-serif;
+    background-color : rgb(233, 233, 233);
 }
 .location{
     height: 95px;
-    
+    color: white;
 }
 .city{
     font-size: 46px;
@@ -81,8 +82,22 @@ main{
 
 .td{
     width : 20%;
+    background:rgba(255, 255, 255, 0.466);
+    border : solid 2px rgb(255, 252, 252);
+    text-align: center;
+    color: rgb(63, 62, 62);
 }
 
 #current-weather-table{
     width : 100%;
+}
+
+.smaller-text{
+    font-size : 15px;
+    font-weight: bold;
+}
+
+table tr td .bigger-text{
+
+    font-size : 30px;
 }
