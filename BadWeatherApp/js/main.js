@@ -20,14 +20,19 @@ function onDataRetrieved(json){
     var countryName = $("#country-name");
     countryName.html(json.city.country);
 
-createCurrentTab(json);
+    // Create dafault tab
+    createCurrentTab(json);
 
+    // Create dafault tab
+    createDeafultBackground(json);
 }
 
+function createDeafultBackground(json){
+    var weather = (json.list[i].dt_txt.split(" ")[1].substr(0, 5));
+}
 
 // Tab Now
 function createCurrentTab(json){
-
 
         // Creating
     for (var i = 0; i < 8; i +=1 ){

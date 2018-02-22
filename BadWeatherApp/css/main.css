@@ -6,9 +6,9 @@ main {
     flex-direction: column;
 }
 body {
-    background-image: url("../images/sunny.jpg");
+    background-image: url("../images/sky1.jpeg");
     background-repeat: no-repeat;
-    background-size: 100% 400px;
+    background-size: 100% 460px;
     font-family: Helvetica, Arial, sans-serif;
     background-color: rgb(233, 233, 233);
 }
@@ -20,6 +20,7 @@ body {
 }
 #navbar {
     background: #efefef;
+    box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.267); 
 }
 #site-name {
     font-size: 30px;
@@ -39,6 +40,25 @@ body {
 
 .filler {
     flex: 1;
+}
+
+/*---DropDown--*/
+/* #nav-dropdown{
+    background-color: rgb(29, 29, 29);
+    color: white;
+} */
+.dropdown-item{
+    font-size: 15px;
+    color: rgb(71, 71, 71);
+    background-color: rgb(255, 255, 255);
+    padding-top: 7px;
+    padding-bottom: 3px;
+}
+
+
+/*---SearchBar--*/
+.form-control{
+    font-size: 20;
 }
 
 /*---LOCATION--*/
@@ -80,6 +100,7 @@ body {
     background-color: #dce8ed;
     border-top-left-radius: 3px;
     border-top-right-radius: 3px;
+
 }
 
 .tabs .tab:hover {
@@ -92,6 +113,10 @@ body {
 
 
 /*------Content--------*/
+
+table{
+    box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.267);  
+}
 
 .td {
     width: 20%;
