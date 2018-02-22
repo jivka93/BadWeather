@@ -21,7 +21,6 @@ body {
     font-size: 46px;
     font-weight: bold;
     float: left;
-    display: inline-block;
     letter-spacing: -3px;
     text-shadow: #2D343A 0px 1px 0px;
     width: 100%;
@@ -51,7 +50,7 @@ body {
 }
 
 #navbar {
-    background: rgba(255, 255, 255, 0.712);
+    background: #efefef;
 }
 
 .filler {
@@ -61,7 +60,7 @@ body {
 #site-name {
     font-size: 30px;
     color: rgb(56, 54, 54);
-    font-family: cursive;
+    font-family: Helvetica, Arial, sans-serif;
     font-weight: bold;
 }
 
@@ -70,7 +69,7 @@ main {
     flex-direction: column;
 }
 
-.tabs .tab{
+.tabs .tab {
     float: left;
     color: #454545;
     display: block;
@@ -82,6 +81,10 @@ main {
     background-color: #dce8ed;
     border-top-left-radius: 3px;
     border-top-right-radius: 3px;
+}
+
+.tabs .tab:hover {
+    background: orange;
 }
 
 .icon-weather {
@@ -107,4 +110,15 @@ main {
 
 table tr td .bigger-text {
     font-size: 30px;
+}
+
+.dropdown-item {
+    font-family: Helvetica, Arial, sans-serif;
+    font: 20px;
+}
+#current-weather-table{
+    background: #efefef;
+}
+.dropdown{
+margin: 10px;
 }
