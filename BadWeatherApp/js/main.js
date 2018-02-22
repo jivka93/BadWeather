@@ -40,7 +40,7 @@ function createCurrentTab(json){
         </td>
         <td class="weather td">
             <div class="weather-icon">
-                <img class="icon-weather" id="icon-${i}" src="images/cloud.png" alt="BadWeather">
+                <img class="icon-weather" id="icon-${i}" src="images/clouds.png" alt="BadWeather">
             </div>
             <div class="weather smaller-text" id="weather-${i}" ></div>
         </td>
@@ -48,11 +48,15 @@ function createCurrentTab(json){
             <div class="degrees bigger-text" id="temp-${i}" ></div>
             <div class="smaller-text">temperature</div>
         </td>
+        <td class="humidity td">
+            <div class="humidity bigger-text" id="humidity-${i}" ></div>
+            <div class="smaller-text">humidity</div>
+        </td>
         <td class="wind td">
             <div class="wind-speed bigger-text" id="wind-${i}" ></div>
             <div class="smaller-text">wind speed</div>
         </td>
-        </tr>`)
+        </tr>`);
 
         $("#current-weather-table").append(row);
     }
@@ -65,18 +69,38 @@ function createCurrentTab(json){
 
         var currentDate = $(`#date-${i}`);
         currentDate.html(json.list[i].dt_txt.split(" ")[0]);
-
-        var currentIcon = $(`#icon-${i}`);
-
-        
+         
         var currentWeather = $(`#weather-${i}`);
         currentWeather.html(json.list[i].weather[0].main);
 
+        var weather = (json.list[i].weather[0].main);
+        if (weather == "Clouds"){
+            $(`#icon-${i}`).attr("src", "images/clouds.png");
+        }
+        else if (weather == "Snow"){
+            $(`#icon-${i}`).attr("src", "images/snow.png");
+        }
+        else if (weather == "Rain"){
+            $(`#icon-${i}`).attr("src", "images/rain.png");
+        }
+        else if (weather == "Clear"){
+            $(`#icon-${i}`).attr("src", "images/clear.png");
+        }
+        else if (weather == "Storm"){
+            $(`#icon-${i}`).attr("src", "images/storm.png");
+        }
+        else{
+            $(`#icon-${i}`).attr("src", "images/other.png");
+        }
+
         var currentTemp = $(`#temp-${i}`);
-        currentTemp.html((json.list[i].main.temp - 273.15).toFixed(0));
+        currentTemp.html((json.list[i].main.temp - 273.15).toFixed(0) + "°");
+
+        var currentHumidity = $(`#humidity-${i}`);
+        currentHumidity.html(json.list[i].main.humidity + " %");
 
         var currentWind = $(`#wind-${i}`);
-        currentWind.html(json.list[i].wind.speed + "m/s");
+        currentWind.html(json.list[i].wind.speed + " m/s");
 
     }
 }

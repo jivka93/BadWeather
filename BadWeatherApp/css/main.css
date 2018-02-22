@@ -1,6 +1,6 @@
 main {
     margin: auto;
-    width: 60%;
+    width: 80%;
     font-family: Helvetica, Arial, sans-serif;
     display: flex;
     flex-direction: column;
@@ -96,21 +96,33 @@ body {
 .td {
     width: 20%;
     background: rgba(255, 255, 255, 0.466);
-    border: solid 2px rgb(255, 252, 252);
     text-align: center;
     color: rgb(63, 62, 62);
+    padding-top: 10px;
+    padding-bottom: 25px;
+    border-bottom: solid 1.7px rgb(216, 216, 216);
+    position: relative;
 }
 
 #current-weather-table {
     width: 100%;
 }
+
 table tr td .bigger-text {
-    font-size: 30px;
+    font-size: 25px;
+}
+
+table tr td .smaller-text{
+	position: absolute;
+    bottom: 5px;
+    left: 0%;
+    right: 0%;
 }
 
 #current-weather-table{
-    background: #efefef;
+    background: #ffffff;
 }
+
 .icon-weather {
-    width: 70px;
+    width: 50px;
 }
