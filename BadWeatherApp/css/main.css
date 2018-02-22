@@ -1,9 +1,10 @@
 main {
     margin: auto;
-    width: 80%;
+    width: 60%;
     font-family: Helvetica, Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
 }
-
 body {
     background-image: url("../images/sunny.jpg");
     background-repeat: no-repeat;
@@ -12,6 +13,35 @@ body {
     background-color: rgb(233, 233, 233);
 }
 
+/*----Navbar-----*/
+.nav-row {
+    display: flex;
+    width: 100%;
+}
+#navbar {
+    background: #efefef;
+}
+#site-name {
+    font-size: 30px;
+    color: rgb(56, 54, 54);
+    font-family: Helvetica, Arial, sans-serif;
+    font-weight: bold;
+}
+
+.large-nav-text {
+    font-size: 20px;
+    color: rgb(49, 49, 49);
+    font-family: Helvetica, Arial, sans-serif;
+}
+#logo1 {
+    width: 50px;
+}
+
+.filler {
+    flex: 1;
+}
+
+/*---LOCATION--*/
 .location {
     height: 120px;
     color: white;
@@ -34,40 +64,9 @@ body {
     width: 100%;
 }
 
-.large-nav-text {
-    font-size: 20px;
-    color: rgb(49, 49, 49);
-    font-family: Helvetica, Arial, sans-serif;
-}
 
-#logo1 {
-    width: 50px;
-}
 
-.nav-row {
-    display: flex;
-    width: 100%;
-}
-
-#navbar {
-    background: #efefef;
-}
-
-.filler {
-    flex: 1;
-}
-
-#site-name {
-    font-size: 30px;
-    color: rgb(56, 54, 54);
-    font-family: Helvetica, Arial, sans-serif;
-    font-weight: bold;
-}
-
-main {
-    display: flex;
-    flex-direction: column;
-}
+/*-----Tabs--------*/
 
 .tabs .tab {
     float: left;
@@ -86,10 +85,13 @@ main {
 .tabs .tab:hover {
     background: orange;
 }
-
-.icon-weather {
-    width: 70px;
+.tabs .tab-active {
+    background: #fff;
 }
+
+
+
+/*------Content--------*/
 
 .td {
     width: 20%;
@@ -102,23 +104,13 @@ main {
 #current-weather-table {
     width: 100%;
 }
-
-.smaller-text {
-    font-size: 15px;
-    font-weight: bold;
-}
-
 table tr td .bigger-text {
     font-size: 30px;
 }
 
-.dropdown-item {
-    font-family: Helvetica, Arial, sans-serif;
-    font: 20px;
-}
 #current-weather-table{
     background: #efefef;
 }
-.dropdown{
-margin: 10px;
+.icon-weather {
+    width: 70px;
 }
