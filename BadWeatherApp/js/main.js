@@ -80,11 +80,13 @@ function changeContent(){
     if($(this).is('#now-tab')){
         $('#content-five-days').html('');
         $('#content-tomorrow').html('');
+        $('#content-current').html("");        
         createCurrentTab(data);
     }
     if($(this).is('#tomorrow-tab')){
-        $('#content-current').html('');
-        $('#content-five-days').html('');
+        $('#content-current').html("");
+        $('#content-tomorrow').html("");
+        $('#content-five-days').html("");
         createTomorrowTab(data);
     }
     if($(this).is('#five-days-tab')){
