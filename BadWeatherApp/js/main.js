@@ -1,6 +1,6 @@
-$(".dropdown-menu").on("click", "a", function(){
+$(".dropdown-menu").on("click", "a", function () {
     let cityId = $(this).attr("id");
-    $("#current-weather-table").html("");
+    $("content-current").html("");
     onButtonClick(cityId);
 });
 
@@ -8,10 +8,10 @@ onButtonClick("727011");
 
 function onButtonClick(cityId) {
     $.get(`http://api.openweathermap.org/data/2.5/forecast?id=${cityId}&appid=2efb9211ec2c1db3d00ea14c0d24c30d`, onDataRetrieved);
-    
+
 }
 
-function onDataRetrieved(json){
+function onDataRetrieved(json) {
     // Location:
     var cityName = $("#city-name");
     cityName.html(json.city.name);
@@ -19,77 +19,75 @@ function onDataRetrieved(json){
     countryName.html(json.city.country);
 
     createCurrentTab(json);
-   
+
     createDeafultBackground(json);
-    sessionStorage.setItem("data",JSON.stringify(json));
+    sessionStorage.setItem("data", JSON.stringify(json));
 }
 
 // Dynamically changes the background picture
-function createDeafultBackground(json){
+function createDeafultBackground(json) {
 
     var hour = parseInt((json.list[0].dt_txt.split(" ")[1].substr(0, 5)).split(":")[0]);
     var weather = (json.list[0].weather[0].main);
 
-    if(hour > 6 && hour <= 8){
+    if (hour > 6 && hour <= 8) {
         $("#body").css("background-image", "url(../images/morning.jpeg)");
-       if(weather == 'Snow'){
-           $("#body").css("background-image", "url(../images/giphy.gif")
-       }
-       if(weather =='Rain'){
-           $("#body").css("background-image", "url(../images/rain.jpg")
-       }
-    }
-    else if(hour > 8 && hour <= 18){
+        if (weather == 'Snow') {
+            $("#body").css("background-image", "url(../images/giphy.gif")
+        }
+        if (weather == 'Rain') {
+            $("#body").css("background-image", "url(../images/rain.jpg")
+        }
+    } else if (hour > 8 && hour <= 18) {
         $("#body").css("background-image", "url(../images/day.jpeg)");
-        if(weather == 'Snow'){
+        if (weather == 'Snow') {
             $("#body").css("background-image", "url((../images/giphy.gif")
         }
-        if(weather =='Rain'){
+        if (weather == 'Rain') {
             $("#body").css("background-image", "url(../images/rain.jpg")
         }
-    }
-    else if(hour > 18 && hour <= 20){
+    } else if (hour > 18 && hour <= 20) {
         $("#body").css("background-image", "url(../images/evening.jpeg)");
-        if(weather == 'Snow'){
+        if (weather == 'Snow') {
             $("#body").css("background-image", "url(../images/swow.jpg")
         }
-        if(weather =='Rain'){
+        if (weather == 'Rain') {
             $("#body").css("background-image", "url(../images/rain.jpg")
         }
-    }
-    else if(hour <= 6 || hour > 20){
+    } else if (hour <= 6 || hour > 20) {
         $("#body").css("background-image", "url(../images/night.png)");
-        if(weather == 'Snow'){
+        if (weather == 'Snow') {
             $("#body").css("background-image", "url(../images/swow.jpg")
         }
-        if(weather =='Rain'){
+        if (weather == 'Rain') {
             $("#body").css("background-image", "url(../images/rain.jpg")
         }
     }
 }
 //Active tab
 
-$('.tab').on('click',changeContent)
+$('.tab').on('click', changeContent)
 
-function changeContent(){
+function changeContent() {
     $('.tab-active').removeClass('tab-active').addClass('tab-inactive');
     $(this).addClass('tab-active').removeClass('tab-inactive');
-    
+
     var data = JSON.parse(sessionStorage.getItem("data"));
     
-    if($(this).is('#now-tab')){
+
+    if ($(this).is('#now-tab')) {
         $('#content-five-days').html('');
         $('#content-tomorrow').html('');
-        $('#content-current').html("");        
+        $('#content-current').html("");
         createCurrentTab(data);
     }
-    if($(this).is('#tomorrow-tab')){
+    if ($(this).is('#tomorrow-tab')) {
         $('#content-current').html("");
         $('#content-tomorrow').html("");
         $('#content-five-days').html("");
         createTomorrowTab(data);
     }
-    if($(this).is('#five-days-tab')){
+    if ($(this).is('#five-days-tab')) {
         $('#content-current').html('');
         $('#content-tomorrow').html('');
         ///TO DO : createFiveDaysTab(data);
@@ -99,10 +97,10 @@ function changeContent(){
 
 
 // Tab Now
-function createCurrentTab(json){
-
+function createCurrentTab(json) {
+    
     // Creating
-    for (var i = 0; i < 8; i +=1 ){
+    for (var i = 0; i < 8; i += 1) {
         var row = $(`
         <table id="current-weather-table">    
             <tr class="content-row" id="row${i}">
@@ -135,34 +133,29 @@ function createCurrentTab(json){
     }
 
     // Filling:
-    for (var i = 0; i < 8; i +=1 ){
+    for (var i = 0; i < 8; i += 1) {
 
         var currentHour = $(`#hour-${i}`);
         currentHour.html(json.list[i].dt_txt.split(" ")[1].substr(0, 5));
 
         var currentDate = $(`#date-${i}`);
         currentDate.html(json.list[i].dt_txt.split(" ")[0]);
-         
+
         var currentWeather = $(`#weather-${i}`);
         currentWeather.html(json.list[i].weather[0].main);
 
         var weather = (json.list[i].weather[0].main);
-        if (weather == "Clouds"){
+        if (weather == "Clouds") {
             $(`#icon-${i}`).attr("src", "images/clouds.png");
-        }
-        else if (weather == "Snow"){
+        } else if (weather == "Snow") {
             $(`#icon-${i}`).attr("src", "images/snow.png");
-        }
-        else if (weather == "Rain"){
+        } else if (weather == "Rain") {
             $(`#icon-${i}`).attr("src", "images/rain.png");
-        }
-        else if (weather == "Clear"){
+        } else if (weather == "Clear") {
             $(`#icon-${i}`).attr("src", "images/clear.png");
-        }
-        else if (weather == "Storm"){
+        } else if (weather == "Storm") {
             $(`#icon-${i}`).attr("src", "images/storm.png");
-        }
-        else{
+        } else {
             $(`#icon-${i}`).attr("src", "images/other.png");
         }
 
@@ -179,7 +172,7 @@ function createCurrentTab(json){
 }
 
 // Tab Tomorrow
-function createTomorrowTab(json){
+function createTomorrowTab(json) {
 
     var row = $(`
     <div class="content-tomorrow">    
