@@ -8,11 +8,10 @@ onButtonClick("727011");
 
 function onButtonClick(cityId) {
     $.get(`http://api.openweathermap.org/data/2.5/forecast?id=${cityId}&appid=2efb9211ec2c1db3d00ea14c0d24c30d`, onDataRetrieved);
+    
 }
 
 function onDataRetrieved(json){
-    console.log(json);
-
     // Location:
     var cityName = $("#city-name");
     cityName.html(json.city.name);
@@ -20,8 +19,9 @@ function onDataRetrieved(json){
     countryName.html(json.city.country);
 
     createCurrentTab(json);
-
+   
     createDeafultBackground(json);
+    sessionStorage.setItem("data",JSON.stringify(json));
 }
 
 // Dynamically changes the background picture
@@ -67,13 +67,40 @@ function createDeafultBackground(json){
         }
     }
 }
+//Active tab
+
+$('.tab').on('click',changeContent)
+
+function changeContent(){
+    $('.tab-active').removeClass('tab-active').addClass('tab-inactive');
+    $(this).addClass('tab-active').removeClass('tab-inactive');
+    
+    var data = JSON.parse(sessionStorage.getItem("data"));
+    
+    if($(this).is('#now-tab')){
+        $('#content-five-days').html('');
+        $('#content-tomorrow').html('');
+        createCurrentTab(data)  
+    }
+    if($(this).is('#tomorrow-tab')){
+        $('#current-weather-table').html('');
+        $('#content-five-days').html('');
+        ///TO DO : CreateTomorrowTab(data)
+    }
+    if($(this).is('#five-days-tab')){
+        $('#current-weather-table').html('');
+        $('#content-tomorrow').html('');
+        ///TO DO : CreateFiveDaysTab(data)
+    }
+};
+
+
 
 // Tab Now
 function createCurrentTab(json){
 
     // Creating
     for (var i = 0; i < 8; i +=1 ){
-
         var row = $(`    
         <tr class="content-row" id="row${i}">
         <td class="time td">
