@@ -25,7 +25,7 @@ function onDataRetrieved(json) {
 }
 
 // Dynamically changes the background picture
-function createDeafultBackground(json) {
+function createDeafultBackground(json) { ///////// TODO : Segregate css to different files and load them with JS 
 
     var hour = parseInt((json.list[0].dt_txt.split(" ")[1].substr(0, 5)).split(":")[0]);
     var weather = (json.list[0].weather[0].main);
@@ -66,7 +66,7 @@ function createDeafultBackground(json) {
 }
 //Active tab
 
-$('.tab').on('click', changeContent)
+$('.tab').on('click', changeContent);
 
 function changeContent() {
     $('.tab-active').removeClass('tab-active').addClass('tab-inactive');
@@ -98,7 +98,7 @@ function changeContent() {
 
 // Tab Now
 function createCurrentTab(json) {
-    
+     
     // Creating
     for (var i = 0; i < 8; i += 1) {
         var row = $(`
