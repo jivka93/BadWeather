@@ -1,9 +1,14 @@
 $(".dropdown-menu").on("click", "a", function () {
     let cityId = $(this).attr("id");
-    $("content-current").html("");
+    clearWeatherContent();
     onButtonClick(cityId);
 });
 
+function clearWeatherContent() {
+    $('#content-five-days').html('');
+    $('#content-tomorrow').html('');
+    $('#content-current').html('');
+}
 onButtonClick("727011");
 
 function onButtonClick(cityId) {
@@ -73,23 +78,18 @@ function changeContent() {
     $(this).addClass('tab-active').removeClass('tab-inactive');
 
     var data = JSON.parse(sessionStorage.getItem("data"));
-    
+
 
     if ($(this).is('#now-tab')) {
-        $('#content-five-days').html('');
-        $('#content-tomorrow').html('');
-        $('#content-current').html("");
+        clearWeatherContent()
         createCurrentTab(data);
     }
     if ($(this).is('#tomorrow-tab')) {
-        $('#content-current').html("");
-        $('#content-tomorrow').html("");
-        $('#content-five-days').html("");
+        clearWeatherContent()
         createTomorrowTab(data);
     }
     if ($(this).is('#five-days-tab')) {
-        $('#content-current').html('');
-        $('#content-tomorrow').html('');
+        clearWeatherContent()
         ///TO DO : createFiveDaysTab(data);
     }
 };
@@ -238,26 +238,19 @@ function createTomorrowTab(json) {
     var windDir = "";
     if (337 < windDirection || windDirection <= 22) {
         windDir = "N";
-    }
-    else if (22 < windDirection && windDirection <= 67) {
+    } else if (22 < windDirection && windDirection <= 67) {
         windDir = "NE";
-    }
-    else if (67 < windDirection && windDirection <= 112) {
+    } else if (67 < windDirection && windDirection <= 112) {
         windDir = "E";
-    }
-    else if (112 < windDirection && windDirection <= 157) {
+    } else if (112 < windDirection && windDirection <= 157) {
         windDir = "SE";
-    }
-    else if (157 < windDirection && windDirection <= 202) {
+    } else if (157 < windDirection && windDirection <= 202) {
         windDir = "S";
-    }
-    else if (202 < windDirection && windDirection <= 247) {
+    } else if (202 < windDirection && windDirection <= 247) {
         windDir = "SW";
-    }
-    else if (247 < windDirection && windDirection <= 292) {
+    } else if (247 < windDirection && windDirection <= 292) {
         windDir = "W";
-    }
-    else if (292 < windDirection && windDirection <= 337) {
+    } else if (292 < windDirection && windDirection <= 337) {
         windDir = "NW";
     }
 
@@ -291,20 +284,15 @@ function createTomorrowTab(json) {
     var weather = (json.list[8].weather[0].main);
     if (weather == "Clouds") {
         $(`#tomorrow-icon`).attr("src", "images/clouds.png");
-    }
-    else if (weather == "Snow") {
+    } else if (weather == "Snow") {
         $(`#tomorrow-icon`).attr("src", "images/snow.png");
-    }
-    else if (weather == "Rain") {
+    } else if (weather == "Rain") {
         $(`#tomorrow-icon`).attr("src", "images/rain.png");
-    }
-    else if (weather == "Clear") {
+    } else if (weather == "Clear") {
         $(`#tomorrow-icon`).attr("src", "images/clear.png");
-    }
-    else if (weather == "Storm") {
+    } else if (weather == "Storm") {
         $(`#tomorrow-icon`).attr("src", "images/storm.png");
-    }
-    else {
+    } else {
         $(`#tomorrow-icon`).attr("src", "images/other.png");
     }
 
