@@ -162,10 +162,15 @@ table tr td .smaller-text {
     width: 100%;
     text-align: center;
     color: rgb(63, 62, 62);
-    border-bottom: solid 1.7px rgb(216,216, 216);
     box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.267);
     margin-bottom: 30px;
     min-height: 220px;  
+}
+
+clearfix:after {
+    content:' ';
+    clear: both;
+    display: block;
 }
 
 .column{
@@ -179,8 +184,7 @@ table tr td .smaller-text {
     font-size: 100px;
     min-height: 180px;
     border-left: 2px solid grey;
-    margin-top: 1.2%;
-    margin-bottom: 1.5%;   
+    margin-top: 1.2%;   
 }
 
 #right{
