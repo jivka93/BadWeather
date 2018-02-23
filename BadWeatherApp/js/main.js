@@ -25,7 +25,7 @@ function onDataRetrieved(json) {
 }
 
 // Dynamically changes the background picture
-function createDeafultBackground(json) { ///////// TODO : Segregate css to different files and load them with JS 
+function createDeafultBackground(json) { ///////// TODO : Extract css to different files and load them with JS 
 
     var hour = parseInt((json.list[0].dt_txt.split(" ")[1].substr(0, 5)).split(":")[0]);
     var weather = (json.list[0].weather[0].main);
@@ -98,7 +98,7 @@ function changeContent() {
 
 // Tab Now
 function createCurrentTab(json) {
-     
+    $('#content-current').html("");
     // Creating
     for (var i = 0; i < 8; i += 1) {
         var row = $(`
@@ -175,7 +175,7 @@ function createCurrentTab(json) {
 function createTomorrowTab(json) {
 
     var row = $(`
-    <div class="content-tomorrow">    
+    <div class="content-tomorrow clearfix">    
         <div id="left" class="column">
             <p>Saturday</p>
             <p>2018/03/01</p>
