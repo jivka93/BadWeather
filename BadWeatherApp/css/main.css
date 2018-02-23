@@ -5,6 +5,7 @@ main {
     display: flex;
     flex-direction: column;
 }
+
 body {
     background-image: url("../images/day.jpeg");
     background-repeat: no-repeat;
@@ -14,14 +15,17 @@ body {
 }
 
 /*----Navbar-----*/
+
 .nav-row {
     display: flex;
     width: 100%;
 }
+
 #navbar {
     background: #efefef;
-    box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.267); 
+    box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.267);
 }
+
 #site-name {
     font-size: 30px;
     color: rgb(56, 54, 54);
@@ -34,6 +38,7 @@ body {
     color: rgb(49, 49, 49);
     font-family: Helvetica, Arial, sans-serif;
 }
+
 #logo1 {
     width: 50px;
 }
@@ -43,7 +48,8 @@ body {
 }
 
 /*---DropDown--*/
-.dropdown-item{
+
+.dropdown-item {
     font-size: 15px;
     color: rgb(71, 71, 71);
     background-color: rgb(255, 255, 255);
@@ -52,11 +58,13 @@ body {
 }
 
 /*---SearchBar--*/
-.form-control{
+
+.form-control {
     font-size: 20;
 }
 
 /*---LOCATION--*/
+
 .location {
     height: 120px;
     color: white;
@@ -79,9 +87,8 @@ body {
     width: 100%;
 }
 
-
-
 /*-----Tabs--------*/
+
 .tabs .tab {
     float: left;
     color: #454545;
@@ -106,9 +113,10 @@ body {
 
 
 /*------Content--------*/
-table{
+
+table {
     box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.267);
-    margin-bottom: 30px; 
+    margin-bottom: 30px;
 }
 
 .td {
@@ -130,7 +138,7 @@ table tr td .bigger-text {
     font-size: 25px;
 }
 
-table tr td .smaller-text{
+table tr td .smaller-text {
     position: absolute;
     font-size: 14px;
     bottom: 5px;
@@ -138,7 +146,7 @@ table tr td .smaller-text{
     right: 0%;
 }
 
-#current-weather-table{
+#current-weather-table {
     background: #ffffff;
 }
 
