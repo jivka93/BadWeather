@@ -80,17 +80,17 @@ function changeContent(){
     if($(this).is('#now-tab')){
         $('#content-five-days').html('');
         $('#content-tomorrow').html('');
-        createCurrentTab(data)  
+        createCurrentTab(data);
     }
     if($(this).is('#tomorrow-tab')){
         $('#current-weather-table').html('');
         $('#content-five-days').html('');
-        ///TO DO : CreateTomorrowTab(data)
+        createTomorrowTab(data);
     }
     if($(this).is('#five-days-tab')){
         $('#current-weather-table').html('');
         $('#content-tomorrow').html('');
-        ///TO DO : CreateFiveDaysTab(data)
+        ///TO DO : createFiveDaysTab(data);
     }
 };
 
@@ -177,83 +177,32 @@ function createCurrentTab(json){
 // Tab Tomorrow
 function createTomorrowTab(json){
 
-    // Creating
-        var row = $(` 
-        
-        <div class="part" id="tomorrow-left-big-part">
-        LEFT
+    var row = $(`    
+    <div id="left" class="column">
+        <p>Saturday</p>
+        <p>2018/03/01</p>
+        <p>
+            <img id="tomorrow-icon" src="images/clouds.png" alt="BadWeather">
+        </p>
+        <p>CloudsText</p> 
     </div>
-    <div class="part" id="tomorrow-right-big-part">
-        RIGHT
+    <div id="middle" class="column">
+        <p>3°</p>
     </div>
-        
+    <div id="right" class="column">
+        <p>Min. Temperature:</p>
+        <p>Max. Temperature:</p>
+        <p>Humidity: </p>
+        <p>Wind Speed:</p>
+        <p>Wind Direction:</p>
+    </div>
+    <div id="last-right" class="column">
+        <p>1° at 04:00</p>
+        <p>11° at 14:00</p>
+        <p>75 %</p>
+        <p>2.73 m/s</p>
+        <p>North-West</p>
+    </div>`);
 
-
-        <tr class="content-row" id="row${i}">
-        <td class="time td">
-            <div class="hour bigger-text" id="hour-${i}" ></div>
-            <div class="date smaller-text" id="date-${i}" ></div>
-        </td>
-        <td class="weather td">
-            <div class="weather-icon">
-                <img class="icon-weather" id="icon-${i}" src="images/clouds.png" alt="BadWeather">
-            </div>
-            <div class="weather smaller-text" id="weather-${i}" ></div>
-        </td>
-        <td class="temperature td">
-            <div class="degrees bigger-text" id="temp-${i}" ></div>
-            <div class="smaller-text">temperature</div>
-        </td>
-        <td class="humidity td">
-            <div class="humidity bigger-text" id="humidity-${i}" ></div>
-            <div class="smaller-text">humidity</div>
-        </td>
-        <td class="wind td">
-            <div class="wind-speed bigger-text" id="wind-${i}" ></div>
-            <div class="smaller-text">wind speed</div>
-        </td>
-        </tr>`);
-
-        $("#current-weather-table").append(row);
-
-
-    // Filling:
-        var currentHour = $(`#hour-${i}`);
-        currentHour.html(json.list[i].dt_txt.split(" ")[1].substr(0, 5));
-
-        var currentDate = $(`#date-${i}`);
-        currentDate.html(json.list[i].dt_txt.split(" ")[0]);
-         
-        var currentWeather = $(`#weather-${i}`);
-        currentWeather.html(json.list[i].weather[0].main);
-
-        var weather = (json.list[i].weather[0].main);
-        if (weather == "Clouds"){
-            $(`#icon-${i}`).attr("src", "images/clouds.png");
-        }
-        else if (weather == "Snow"){
-            $(`#icon-${i}`).attr("src", "images/snow.png");
-        }
-        else if (weather == "Rain"){
-            $(`#icon-${i}`).attr("src", "images/rain.png");
-        }
-        else if (weather == "Clear"){
-            $(`#icon-${i}`).attr("src", "images/clear.png");
-        }
-        else if (weather == "Storm"){
-            $(`#icon-${i}`).attr("src", "images/storm.png");
-        }
-        else{
-            $(`#icon-${i}`).attr("src", "images/other.png");
-        }
-
-        var currentTemp = $(`#temp-${i}`);
-        currentTemp.html((json.list[i].main.temp - 273.15).toFixed(0) + "°");
-
-        var currentHumidity = $(`#humidity-${i}`);
-        currentHumidity.html(json.list[i].main.humidity + " %");
-
-        var currentWind = $(`#wind-${i}`);
-        currentWind.html(json.list[i].wind.speed + " m/s");
-
+    $("#content-tomorrow").append(row);
 }

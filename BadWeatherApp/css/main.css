@@ -112,9 +112,9 @@ body {
 }
 
 
-/*-------------CONTENT----------------*/
+/*------------- CONTENT ----------------*/
 
-/* -------Tomorrow-------- */
+/* ------- Now -------- */
 table{
     box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.267);
     margin-bottom: 30px;
@@ -155,7 +155,7 @@ table tr td .smaller-text {
     width: 50px;
 }
 
-/* -------Tomorrow-------- */
+/* ------- Tomorrow -------- */
 .content-tomorrow{
     background: #ffffff;
     font-size: 16px;
