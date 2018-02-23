@@ -124,6 +124,7 @@ table{
 
 #current-weather-table {
     width: 100%;
+    display:none;
 }
 
 table tr td .bigger-text {
@@ -144,4 +145,10 @@ table tr td .smaller-text{
 
 .icon-weather {
     width: 50px;
+}
+
+/* -------Tomorrow-------- */
+.part{
+    display: inline;
+    float: left;
 }
