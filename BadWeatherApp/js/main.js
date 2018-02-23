@@ -33,7 +33,7 @@ function createDeafultBackground(json){
     if(hour > 6 && hour <= 8){
         $("#body").css("background-image", "url(../images/morning.jpeg)");
        if(weather == 'Snow'){
-           $("#body").css("background-image", "url(../images/swow.jpg")
+           $("#body").css("background-image", "url(../images/giphy.gif")
        }
        if(weather =='Rain'){
            $("#body").css("background-image", "url(../images/rain.jpg")
@@ -42,7 +42,7 @@ function createDeafultBackground(json){
     else if(hour > 8 && hour <= 18){
         $("#body").css("background-image", "url(../images/day.jpeg)");
         if(weather == 'Snow'){
-            $("#body").css("background-image", "url(../images/swow.jpg")
+            $("#body").css("background-image", "url((../images/giphy.gif")
         }
         if(weather =='Rain'){
             $("#body").css("background-image", "url(../images/rain.jpg")
