@@ -115,7 +115,7 @@ body {
 /*------------- CONTENT ----------------*/
 
 /* ------- Now -------- */
-table{
+.content{
     box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.267);
     margin-bottom: 30px;
 }

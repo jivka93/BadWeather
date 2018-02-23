@@ -83,12 +83,12 @@ function changeContent(){
         createCurrentTab(data);
     }
     if($(this).is('#tomorrow-tab')){
-        $('#current-weather-table').html('');
+        $('#content-current').html('');
         $('#content-five-days').html('');
         createTomorrowTab(data);
     }
     if($(this).is('#five-days-tab')){
-        $('#current-weather-table').html('');
+        $('#content-current').html('');
         $('#content-tomorrow').html('');
         ///TO DO : createFiveDaysTab(data);
     }
@@ -101,33 +101,35 @@ function createCurrentTab(json){
 
     // Creating
     for (var i = 0; i < 8; i +=1 ){
-        var row = $(`    
-        <tr class="content-row" id="row${i}">
-        <td class="time td">
-            <div class="hour bigger-text" id="hour-${i}" ></div>
-            <div class="date smaller-text" id="date-${i}" ></div>
-        </td>
-        <td class="weather td">
-            <div class="weather-icon">
-                <img class="icon-weather" id="icon-${i}" src="images/clouds.png" alt="BadWeather">
-            </div>
-            <div class="weather smaller-text" id="weather-${i}" ></div>
-        </td>
-        <td class="temperature td">
-            <div class="degrees bigger-text" id="temp-${i}" ></div>
-            <div class="smaller-text">temperature</div>
-        </td>
-        <td class="humidity td">
-            <div class="humidity bigger-text" id="humidity-${i}" ></div>
-            <div class="smaller-text">humidity</div>
-        </td>
-        <td class="wind td">
-            <div class="wind-speed bigger-text" id="wind-${i}" ></div>
-            <div class="smaller-text">wind speed</div>
-        </td>
-        </tr>`);
+        var row = $(`
+        <table id="current-weather-table">    
+            <tr class="content-row" id="row${i}">
+            <td class="time td">
+                <div class="hour bigger-text" id="hour-${i}" ></div>
+                <div class="date smaller-text" id="date-${i}" ></div>
+            </td>
+            <td class="weather td">
+                <div class="weather-icon">
+                    <img class="icon-weather" id="icon-${i}" src="images/clouds.png" alt="BadWeather">
+                </div>
+                <div class="weather smaller-text" id="weather-${i}" ></div>
+            </td>
+            <td class="temperature td">
+                <div class="degrees bigger-text" id="temp-${i}" ></div>
+                <div class="smaller-text">temperature</div>
+            </td>
+            <td class="humidity td">
+                <div class="humidity bigger-text" id="humidity-${i}" ></div>
+                <div class="smaller-text">humidity</div>
+            </td>
+            <td class="wind td">
+                <div class="wind-speed bigger-text" id="wind-${i}" ></div>
+                <div class="smaller-text">wind speed</div>
+            </td>
+            </tr>
+        </table>`);
 
-        $("#current-weather-table").append(row);
+        $("#content-current").append(row);
     }
 
     // Filling:
@@ -177,31 +179,33 @@ function createCurrentTab(json){
 // Tab Tomorrow
 function createTomorrowTab(json){
 
-    var row = $(`    
-    <div id="left" class="column">
-        <p>Saturday</p>
-        <p>2018/03/01</p>
-        <p>
-            <img id="tomorrow-icon" src="images/clouds.png" alt="BadWeather">
-        </p>
-        <p>CloudsText</p> 
-    </div>
-    <div id="middle" class="column">
-        <p>3°</p>
-    </div>
-    <div id="right" class="column">
-        <p>Min. Temperature:</p>
-        <p>Max. Temperature:</p>
-        <p>Humidity: </p>
-        <p>Wind Speed:</p>
-        <p>Wind Direction:</p>
-    </div>
-    <div id="last-right" class="column">
-        <p>1° at 04:00</p>
-        <p>11° at 14:00</p>
-        <p>75 %</p>
-        <p>2.73 m/s</p>
-        <p>North-West</p>
+    var row = $(`
+    <div class="content-tomorrow">    
+        <div id="left" class="column">
+            <p>Saturday</p>
+            <p>2018/03/01</p>
+            <p>
+                <img id="tomorrow-icon" src="images/clouds.png" alt="BadWeather">
+            </p>
+            <p>CloudsText</p> 
+        </div>
+        <div id="middle" class="column">
+            <p>3°</p>
+        </div>
+        <div id="right" class="column">
+            <p>Min. Temperature:</p>
+            <p>Max. Temperature:</p>
+            <p>Humidity: </p>
+            <p>Wind Speed:</p>
+            <p>Wind Direction:</p>
+        </div>
+        <div id="last-right" class="column">
+            <p>1° at 04:00</p>
+            <p>11° at 14:00</p>
+            <p>75 %</p>
+            <p>2.73 m/s</p>
+            <p>North-West</p>
+        </div>
     </div>`);
 
     $("#content-tomorrow").append(row);
