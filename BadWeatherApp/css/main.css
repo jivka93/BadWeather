@@ -6,7 +6,7 @@ main {
     flex-direction: column;
 }
 body {
-    background-image: url("../images/sky1.jpeg");
+    background-image: url("../images/day.jpeg");
     background-repeat: no-repeat;
     background-size: 100% 460px;
     font-family: Helvetica, Arial, sans-serif;
