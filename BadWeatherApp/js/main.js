@@ -10,7 +10,6 @@ function onButtonClick(cityId) {
     $.get(`http://api.openweathermap.org/data/2.5/forecast?id=${cityId}&appid=2efb9211ec2c1db3d00ea14c0d24c30d`, onDataRetrieved);
 }
 
-
 function onDataRetrieved(json){
     console.log(json);
 
@@ -20,21 +19,34 @@ function onDataRetrieved(json){
     var countryName = $("#country-name");
     countryName.html(json.city.country);
 
-    // Create dafault tab
     createCurrentTab(json);
 
-    // Create dafault tab
     createDeafultBackground(json);
 }
 
+// Dynamically changes the background picture
 function createDeafultBackground(json){
-    var weather = (json.list[i].dt_txt.split(" ")[1].substr(0, 5));
+
+    var hour = parseInt((json.list[0].dt_txt.split(" ")[1].substr(0, 5)).split(":")[0]);
+
+    if(hour > 6 && hour <= 8){
+        $("#body").css("background-image", "url(../images/morning.jpeg)");
+    }
+    else if(hour > 8 && hour <= 18){
+        $("#body").css("background-image", "url(../images/day.jpeg)");
+    }
+    else if(hour > 18 && hour <= 20){
+        $("#body").css("background-image", "url(../images/evening.jpeg)");
+    }
+    else if(hour <= 6 || hour > 20){
+        $("#body").css("background-image", "url(../images/night.png)");
+    }
 }
 
 // Tab Now
 function createCurrentTab(json){
 
-        // Creating
+    // Creating
     for (var i = 0; i < 8; i +=1 ){
 
         var row = $(`    
@@ -66,7 +78,7 @@ function createCurrentTab(json){
         $("#current-weather-table").append(row);
     }
 
-        // Filling:
+    // Filling:
     for (var i = 0; i < 8; i +=1 ){
 
         var currentHour = $(`#hour-${i}`);
@@ -106,6 +118,6 @@ function createCurrentTab(json){
 
         var currentWind = $(`#wind-${i}`);
         currentWind.html(json.list[i].wind.speed + " m/s");
-
     }
+
 }

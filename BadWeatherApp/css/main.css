@@ -43,10 +43,6 @@ body {
 }
 
 /*---DropDown--*/
-/* #nav-dropdown{
-    background-color: rgb(29, 29, 29);
-    color: white;
-} */
 .dropdown-item{
     font-size: 15px;
     color: rgb(71, 71, 71);
@@ -54,7 +50,6 @@ body {
     padding-top: 7px;
     padding-bottom: 3px;
 }
-
 
 /*---SearchBar--*/
 .form-control{
@@ -72,7 +67,7 @@ body {
     font-weight: bold;
     float: left;
     letter-spacing: -3px;
-    text-shadow: #2D343A 0px 1px 0px;
+    text-shadow: rgb(33, 38, 43) 2px 3px 5px;
     width: 100%;
 }
 
@@ -80,14 +75,13 @@ body {
     float: left;
     font-size: 18px;
     font-weight: bold;
-    text-shadow: #2D343A 0px 1px 0px;
+    text-shadow: rgb(33, 38, 43) 2px 3px 5px;
     width: 100%;
 }
 
 
 
 /*-----Tabs--------*/
-
 .tabs .tab {
     float: left;
     color: #454545;
@@ -100,22 +94,21 @@ body {
     background-color: #dce8ed;
     border-top-left-radius: 3px;
     border-top-right-radius: 3px;
-
 }
 
 .tabs .tab:hover {
     background: orange;
 }
+
 .tabs .tab-active {
     background: #fff;
 }
 
 
-
 /*------Content--------*/
-
 table{
-    box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.267);  
+    box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.267);
+    margin-bottom: 30px; 
 }
 
 .td {
@@ -138,7 +131,8 @@ table tr td .bigger-text {
 }
 
 table tr td .smaller-text{
-	position: absolute;
+    position: absolute;
+    font-size: 14px;
     bottom: 5px;
     left: 0%;
     right: 0%;
