@@ -105,7 +105,9 @@ body {
 }
 
 
-/*------Content--------*/
+/*-------------CONTENT----------------*/
+
+/* -------Tomorrow-------- */
 table{
     box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.267);
     margin-bottom: 30px; 
@@ -124,7 +126,6 @@ table{
 
 #current-weather-table {
     width: 100%;
-    display:none;
 }
 
 table tr td .bigger-text {
@@ -148,7 +149,54 @@ table tr td .smaller-text{
 }
 
 /* -------Tomorrow-------- */
-.part{
-    display: inline;
+.content-tomorrow{
+    background: #ffffff;
+    font-size: 16px;
+    width: 100%;
+    text-align: center;
+    color: rgb(63, 62, 62);
+    border-bottom: solid 1.7px rgb(216,216, 216);
+    box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.267);
+    margin-bottom: 30px;
+    min-height: 220px;  
+}
+
+.column{
+    width: 25%;
+    background: #ffffff;
     float: left;
+    padding: 18px;
+}
+
+#middle{
+    font-size: 100px;
+    min-height: 180px;
+    border-left: 2px solid grey;
+    margin-top: 1.2%;
+    margin-bottom: 1.5%;   
+}
+
+#right{
+    width: 25%;
+    background-color: #424242;
+    color: white;
+    min-height: 220px;
+    text-align: right;
+    padding-top: 3%;
+    padding-right: 1%;
+
+}
+
+#last-right{
+    width: 25%;
+    background-color: #424242;
+    color: white;
+    min-height: 220px;
+    text-align: left;
+    padding-top: 3%;
+    padding-left: 1%;
+}
+
+#tomorrow-icon{
+    width: 70px;
 }
