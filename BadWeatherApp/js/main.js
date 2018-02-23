@@ -1,6 +1,6 @@
 $(".dropdown-menu").on("click", "a", function () {
     let cityId = $(this).attr("id");
-    $("#current-weather-table").html("");
+    $("content-current").html("");
     onButtonClick(cityId);
 });
 
@@ -25,7 +25,7 @@ function onDataRetrieved(json) {
 }
 
 // Dynamically changes the background picture
-function createDeafultBackground(json) {
+function createDeafultBackground(json) { ///////// TODO : Extract css to different files and load them with JS 
 
     var hour = parseInt((json.list[0].dt_txt.split(" ")[1].substr(0, 5)).split(":")[0]);
     var weather = (json.list[0].weather[0].main);
@@ -38,8 +38,7 @@ function createDeafultBackground(json) {
         if (weather == 'Rain') {
             $("#body").css("background-image", "url(../images/rain.jpg")
         }
-    }
-    else if (hour > 8 && hour <= 18) {
+    } else if (hour > 8 && hour <= 18) {
         $("#body").css("background-image", "url(../images/day.jpeg)");
         if (weather == 'Snow') {
             $("#body").css("background-image", "url((../images/giphy.gif")
@@ -47,8 +46,7 @@ function createDeafultBackground(json) {
         if (weather == 'Rain') {
             $("#body").css("background-image", "url(../images/rain.jpg")
         }
-    }
-    else if (hour > 18 && hour <= 20) {
+    } else if (hour > 18 && hour <= 20) {
         $("#body").css("background-image", "url(../images/evening.jpeg)");
         if (weather == 'Snow') {
             $("#body").css("background-image", "url(../images/swow.jpg")
@@ -56,8 +54,7 @@ function createDeafultBackground(json) {
         if (weather == 'Rain') {
             $("#body").css("background-image", "url(../images/rain.jpg")
         }
-    }
-    else if (hour <= 6 || hour > 20) {
+    } else if (hour <= 6 || hour > 20) {
         $("#body").css("background-image", "url(../images/night.png)");
         if (weather == 'Snow') {
             $("#body").css("background-image", "url(../images/swow.jpg")
@@ -69,13 +66,14 @@ function createDeafultBackground(json) {
 }
 //Active tab
 
-$('.tab').on('click', changeContent)
+$('.tab').on('click', changeContent);
 
 function changeContent() {
     $('.tab-active').removeClass('tab-active').addClass('tab-inactive');
     $(this).addClass('tab-active').removeClass('tab-inactive');
 
     var data = JSON.parse(sessionStorage.getItem("data"));
+    
 
     if ($(this).is('#now-tab')) {
         $('#content-five-days').html('');
@@ -100,7 +98,7 @@ function changeContent() {
 
 // Tab Now
 function createCurrentTab(json) {
-
+    $('#content-current').html("");
     // Creating
     for (var i = 0; i < 8; i += 1) {
         var row = $(`
@@ -149,20 +147,15 @@ function createCurrentTab(json) {
         var weather = (json.list[i].weather[0].main);
         if (weather == "Clouds") {
             $(`#icon-${i}`).attr("src", "images/clouds.png");
-        }
-        else if (weather == "Snow") {
+        } else if (weather == "Snow") {
             $(`#icon-${i}`).attr("src", "images/snow.png");
-        }
-        else if (weather == "Rain") {
+        } else if (weather == "Rain") {
             $(`#icon-${i}`).attr("src", "images/rain.png");
-        }
-        else if (weather == "Clear") {
+        } else if (weather == "Clear") {
             $(`#icon-${i}`).attr("src", "images/clear.png");
-        }
-        else if (weather == "Storm") {
+        } else if (weather == "Storm") {
             $(`#icon-${i}`).attr("src", "images/storm.png");
-        }
-        else {
+        } else {
             $(`#icon-${i}`).attr("src", "images/other.png");
         }
 
@@ -182,7 +175,7 @@ function createCurrentTab(json) {
 function createTomorrowTab(json) {
 
     var row = $(`
-    <div class="content-tomorrow">    
+    <div class="content-tomorrow clearfix">    
         <div id="left" class="column">
             <p id="day"></p>
             <p id="date"></p>
