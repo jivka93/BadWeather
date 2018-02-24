@@ -216,13 +216,13 @@ clearfix:after {
 
 
 
-#content-list{
+#content-five-days{
     background: #fff;
     display: block;
     list-style: none;
     height: 45%;
 }
-#content-list li{
+.listdays{
     
     padding: 20px;
     text-align: center;
@@ -236,31 +236,31 @@ clearfix:after {
     border-right:none;
 }
 
-.tab-five-days {
+.listdays {
     display: inline-block;
     
 }
 
-.tab-five-days .day {
+.listdays .day {
     display: block;
     color: #454545;
     font-size: 18px;
     margin-bottom: 5px;
 }
 
-.tab-five-days .date {
+.listdays .date {
     display: block;
     color: #454545;
     font-size: 12px;
     margin-bottom: 5px;
 }
 
-.tab-five-days #weather-icon {
+.weather-icon-5days .days-icon  {
     
     width: 70px;
 }
 
-.tab-five-days .title {
+.listdays .title {
     display: block;
     color: #454545;
     font-size: 15px;
@@ -268,13 +268,13 @@ clearfix:after {
     margin-bottom: 7px; 
 }
 
-.tab-five-days .temperature {
+.listdays .temperature {
     display: block;
     color: #7b8f9e;
     font-size: 22px;
 }
 
-.tab-five-days .wind {
+.listdays .wind {
     display: block;
     color: #454545;
     font-size: 20px;

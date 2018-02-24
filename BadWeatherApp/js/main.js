@@ -276,7 +276,7 @@ function createTomorrowTab(json) {
     averageTemperature.html(averageTemp + "°");
 
     var tomorrowDate = $('#date');
-    tomorrowDate.html((json.list[8].dt_txt).split(" ")[0])
+    tomorrowDate.html((json.list[8].dt_txt).split(" ")[0]);
 
     var tomorrowDay = $('#day');
     var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
@@ -301,82 +301,82 @@ function createTomorrowTab(json) {
 
     var tomorrowWeatherText = $(`#weather-text`);
     tomorrowWeatherText.html(json.list[9].weather[0].description);
-
 }
 
-function createFiveDaysTab(data) {
+function createFiveDaysTab(json) {
+    $('#content-five-days').html("");
+    // Creating
+    var allTemps = [];
+    for (var i = 0; i < 40; i += 1) {
+        allTemps.push(json.list[i].main.temp);
+    }
+    console.log(allTemps);
+    for (var i = 0; i < 40; i += 8) {
+        var col = $(`
+    <div id="day${i}" class="tab-five-days listdays">
+        <div class="day" id="day-${i}"></div>
+        <div class="date" id="date${i}"></div>
+        <div class="weather-icon-5days" >
+            <img id="weather-icon${i}"class="days-icon" src="images/clouds.png" alt="BadWeather">
+        </div>
+        <div class="title" id="title${i}">
+        </div>
+        <div class="temperature" id="temperature${i}">
+            <div class="min" id="tempMin${i}"></div>
+            <div class="max" id="tempMax${i}"></div>
+        </div>
+        <div class="wind"></div>
+    </div> 
+  `)
 
-    var row = $(`
-    <ul id="content-list">
-    <li id="today" class="tab-five-days">
-        <span class="day">Saturday</span>
-        <span class="date">24.02.2018</span>
-        <span id="weather-icon">
-            <img id="tomorrow-icon" src="images/clouds.png" alt="BadWeather">
-        </span>
-        <span class="title">Cloudy</span>
-        <span class="temperature">
-            <span class="min">1°</span> /
-            <span class="max">6°</span>
-        </span>
-        <span class="wind">2 m/s</span>
-    </li>
-    <li id="tomorrow" class="tab-five-days">
-        <span class="day">Saturday</span>
-        <span class="date">24.02.2018</span>
-        <span id="weather-icon">
-            <img id="tomorrow-icon" src="images/clouds.png" alt="BadWeather">
-        </span>
-        <span class="title">Cloudy</span>
-        <span class="temperature">
-            <span class="min">1°</span> /
-            <span class="max">6°</span>
-        </span>
-        <span class="wind">2 m/s</span>
-    </li>
-    <li id="day-after-tomorrow" class="tab-five-days">
-        <span class="day">Saturday</span>
-        <span class="date">24.02.2018</span>
-        <span id="weather-icon">
-            <img id="tomorrow-icon" src="images/clouds.png" alt="BadWeather">
-        </span>
-        <span class="title">Cloudy</span>
-        <span class="temperature">
-            <span class="min">1°</span> /
-            <span class="max">6°</span>
-        </span>
-        <span class="wind">2 m/s</span>
-    </li>
-    <li id="second-to-last-day" class="tab-five-days">
-        <span class="day">Saturday</span>
-        <span class="date">24.02.2018</span>
-        <span id="weather-icon">
-            <img id="tomorrow-icon" src="images/clouds.png" alt="BadWeather">
-        </span>
-        <span class="title">Cloudy</span>
-        <span class="temperature">
-            <span class="min">1°</span> /
-            <span class="max">6°</span>
-        </span>
-        <span class="wind">2 m/s</span>
-    </li>
-    <li id="last-day" class="tab-five-days">
-        <span class="day">Saturday</span>
-        <span class="date">24.02.2018</span>
-        <span id="weather-icon">
-            <img id="tomorrow-icon" src="images/clouds.png" alt="BadWeather">
-        </span>
-        <span class="title">Cloudy</span>
-        <span class="temperature">
-            <span class="min">1°</span> /
-            <span class="max">6°</span>
-        </span>
-        <span class="wind">2 m/s</span>
-    </li>
-</ul>`)
+        $("#content-five-days").append(col);
 
-    $("#content-five-days").append(row);
+        var day = $(`#day-${i}`);
+        var d = new Date(json.list[i].dt_txt);
+        var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+        var dayName = days[d.getDay()];
+        $(day).html(dayName);
+
+        var date5days = $(`#date${i}`);
+        $(`#date${i}`).html((json.list[i].dt_txt).split(" ")[0]);
+
+        var title5days = $(`#title${i}`);
+        $(title5days).html(json.list[i].weather[0].description);
+        console.log(title5days);
+
+        var minTemp5Days = $(`#tempMin${i}`);
+        var minT5d = 1000;
+        for (var k = i; k < i + 8; k += 1) {
+            if (minT5d > allTemps[k]) {
+                minT5d = allTemps[k];
+            }
+        }
+        $(minTemp5Days).html("Min Temp: " + (minT5d.toFixed(0) - 273.15).toFixed(0));
+
+        var maxTemp5Days = $(`#tempMax${i}`);
+        var maxT5d = -1000;
+        for (var k = i; k < i + 8; k += 1) {
+            if (maxT5d < allTemps[k]) {
+                maxT5d = allTemps[k];
+            }
+        }
+        $(maxTemp5Days).html("Max Temp: " + (maxT5d.toFixed(0) - 273.15).toFixed(0));
+     
+        var weather5days = (json.list[i].weather[0].main);
+        if (weather5days == "Clouds") {
+            $(`#weather-icon${i}`).attr("src", "images/clouds.png");
+        } else if (weather5days == "Snow") {
+            $(`#weather-icon${i}`).attr("src", "images/snow.png");
+        } else if (weather5days == "Rain") {
+            $(`#weather-icon${i}`).attr("src", "images/rain.png");
+        } else if (weather5days == "Clear") {
+            $(`#weather-icon${i}`).attr("src", "images/clear.png");
+        } else if (weather5days == "Storm") {
+            $(`#weather-icon${i}`).attr("src", "images/storm.png");
+        } else {
+            $(`#weather-icon${i}`).attr("src", "images/other.png");
+        }
 
 
-    // TO-DO Fill with correct info
+    }
 }
