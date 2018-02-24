@@ -4,6 +4,8 @@
 $(".dropdown-menu").on("click", "a", function () {
     let cityId = $(this).attr("id");
     clearWeatherContent();
+    $('.tab-active').removeClass('tab-active').addClass('tab-inactive');
+    $('#now-tab').addClass('tab-active').removeClass('tab-inactive');
     onButtonClick(cityId);
 });
 
