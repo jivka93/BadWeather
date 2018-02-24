@@ -1,3 +1,6 @@
+///TODO : Extract functions in different files.
+
+
 $(".dropdown-menu").on("click", "a", function () {
     let cityId = $(this).attr("id");
     clearWeatherContent();
@@ -30,7 +33,7 @@ function onDataRetrieved(json) {
 }
 
 // Dynamically changes the background picture
-function createDeafultBackground(json) { ///////// TODO : Extract css to different files and load them with JS 
+function createDeafultBackground(json) { ///////// TODO : Extract css to different files for diff cases and load them with JS 
 
     var hour = parseInt((json.list[0].dt_txt.split(" ")[1].substr(0, 5)).split(":")[0]);
     var weather = (json.list[0].weather[0].main);
@@ -81,16 +84,16 @@ function changeContent() {
 
 
     if ($(this).is('#now-tab')) {
-        clearWeatherContent()
+        clearWeatherContent();
         createCurrentTab(data);
     }
     if ($(this).is('#tomorrow-tab')) {
-        clearWeatherContent()
+        clearWeatherContent();
         createTomorrowTab(data);
     }
     if ($(this).is('#five-days-tab')) {
-        clearWeatherContent()
-        ///TO DO : createFiveDaysTab(data);
+        clearWeatherContent();
+        createFiveDaysTab(data);
     }
 };
 
@@ -299,4 +302,81 @@ function createTomorrowTab(json) {
     var tomorrowWeatherText = $(`#weather-text`);
     tomorrowWeatherText.html(json.list[9].weather[0].description);
 
+}
+
+function createFiveDaysTab(data) {
+
+    var row = $(`
+    <ul id="content-list">
+    <li id="today" class="tab-five-days">
+        <span class="day">Saturday</span>
+        <span class="date">24.02.2018</span>
+        <span id="weather-icon">
+            <img id="tomorrow-icon" src="images/clouds.png" alt="BadWeather">
+        </span>
+        <span class="title">Cloudy</span>
+        <span class="temperature">
+            <span class="min">1°</span> /
+            <span class="max">6°</span>
+        </span>
+        <span class="wind">2 m/s</span>
+    </li>
+    <li id="tomorrow" class="tab-five-days">
+        <span class="day">Saturday</span>
+        <span class="date">24.02.2018</span>
+        <span id="weather-icon">
+            <img id="tomorrow-icon" src="images/clouds.png" alt="BadWeather">
+        </span>
+        <span class="title">Cloudy</span>
+        <span class="temperature">
+            <span class="min">1°</span> /
+            <span class="max">6°</span>
+        </span>
+        <span class="wind">2 m/s</span>
+    </li>
+    <li id="day-after-tomorrow" class="tab-five-days">
+        <span class="day">Saturday</span>
+        <span class="date">24.02.2018</span>
+        <span id="weather-icon">
+            <img id="tomorrow-icon" src="images/clouds.png" alt="BadWeather">
+        </span>
+        <span class="title">Cloudy</span>
+        <span class="temperature">
+            <span class="min">1°</span> /
+            <span class="max">6°</span>
+        </span>
+        <span class="wind">2 m/s</span>
+    </li>
+    <li id="second-to-last-day" class="tab-five-days">
+        <span class="day">Saturday</span>
+        <span class="date">24.02.2018</span>
+        <span id="weather-icon">
+            <img id="tomorrow-icon" src="images/clouds.png" alt="BadWeather">
+        </span>
+        <span class="title">Cloudy</span>
+        <span class="temperature">
+            <span class="min">1°</span> /
+            <span class="max">6°</span>
+        </span>
+        <span class="wind">2 m/s</span>
+    </li>
+    <li id="last-day" class="tab-five-days">
+        <span class="day">Saturday</span>
+        <span class="date">24.02.2018</span>
+        <span id="weather-icon">
+            <img id="tomorrow-icon" src="images/clouds.png" alt="BadWeather">
+        </span>
+        <span class="title">Cloudy</span>
+        <span class="temperature">
+            <span class="min">1°</span> /
+            <span class="max">6°</span>
+        </span>
+        <span class="wind">2 m/s</span>
+    </li>
+</ul>`)
+
+    $("#content-five-days").append(row);
+
+
+    // TO-DO Fill with correct info
 }

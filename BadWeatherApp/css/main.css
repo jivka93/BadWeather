@@ -111,11 +111,11 @@ body {
     background: #fff;
 }
 
-
 /*------------- CONTENT ----------------*/
 
 /* ------- Now -------- */
-.content{
+
+.content {
     box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.267);
     margin-bottom: 30px;
 }
@@ -156,7 +156,8 @@ table tr td .smaller-text {
 }
 
 /* ------- Tomorrow -------- */
-.content-tomorrow{
+
+.content-tomorrow {
     background: #ffffff;
     font-size: 16px;
     width: 100%;
@@ -164,30 +165,30 @@ table tr td .smaller-text {
     color: rgb(63, 62, 62);
     box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.267);
     margin-bottom: 30px;
-    min-height: 220px;  
+    min-height: 220px;
 }
 
 clearfix:after {
-    content:' ';
+    content: ' ';
     clear: both;
     display: block;
 }
 
-.column{
+.column {
     width: 25%;
     background: #ffffff;
     float: left;
     padding: 18px;
 }
 
-#middle{
+#middle {
     font-size: 100px;
     min-height: 180px;
     border-left: 2px solid grey;
-    margin-top: 1.2%;   
+    margin-top: 1.2%;
 }
 
-#right{
+#right {
     width: 25%;
     background-color: #424242;
     color: white;
@@ -195,10 +196,9 @@ clearfix:after {
     text-align: right;
     padding-top: 3%;
     padding-right: 1%;
-
 }
 
-#last-right{
+#last-right {
     width: 25%;
     background-color: #424242;
     color: white;
@@ -208,6 +208,78 @@ clearfix:after {
     padding-left: 1%;
 }
 
-#tomorrow-icon{
+#tomorrow-icon {
     width: 70px;
+}
+
+/* ------- Five-Days --------TODO: Better Format */
+
+
+
+#content-list{
+    background: #fff;
+    display: block;
+    list-style: none;
+    height: 45%;
+}
+#content-list li{
+    
+    padding: 20px;
+    text-align: center;
+    border-right: solid 1.7px rgb(216, 216, 216);
+    margin: 10px;
+    width: 15%;
+    height: 90%;
+    
+}
+#content-list li:last-child{
+    border-right:none;
+}
+
+.tab-five-days {
+    display: inline-block;
+    
+}
+
+.tab-five-days .day {
+    display: block;
+    color: #454545;
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.tab-five-days .date {
+    display: block;
+    color: #454545;
+    font-size: 12px;
+    margin-bottom: 5px;
+}
+
+.tab-five-days #weather-icon {
+    
+    width: 70px;
+}
+
+.tab-five-days .title {
+    display: block;
+    color: #454545;
+    font-size: 15px;
+    min-height: 34px;
+    margin-bottom: 7px; 
+}
+
+.tab-five-days .temperature {
+    display: block;
+    color: #7b8f9e;
+    font-size: 22px;
+}
+
+.tab-five-days .wind {
+    display: block;
+    color: #454545;
+    font-size: 20px;
+    font-weight: bold;
+}
+    ul, menu, dir {
+    -webkit-padding-start: 0px;
 }
