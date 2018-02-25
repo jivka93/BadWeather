@@ -14,6 +14,7 @@ body {
     background-color: rgb(233, 233, 233);
 }
 
+
 /*----Navbar-----*/
 
 .nav-row {
@@ -47,6 +48,7 @@ body {
     flex: 1;
 }
 
+
 /*---DropDown--*/
 
 .dropdown-item {
@@ -57,11 +59,13 @@ body {
     padding-bottom: 3px;
 }
 
+
 /*---SearchBar--*/
 
 .form-control {
     font-size: 20;
 }
+
 
 /*---LOCATION--*/
 
@@ -87,6 +91,7 @@ body {
     width: 100%;
 }
 
+
 /*-----Tabs--------*/
 
 .tabs .tab {
@@ -110,6 +115,7 @@ body {
 .tabs .tab-active {
     background: #fff;
 }
+
 
 /*------------- CONTENT ----------------*/
 
@@ -189,10 +195,13 @@ clearfix:after {
 }
 
 #middle {
-    font-size: 100px;
     min-height: 180px;
-    border-left: 2px solid grey;
+    border-left: solid 1.7px rgb(216, 216, 216);
     margin-top: 1.2%;
+}
+
+#av-degrees{
+    font-size: 80px;
 }
 
 #right {
@@ -203,6 +212,14 @@ clearfix:after {
     text-align: right;
     padding-top: 3%;
     padding-right: 1%;
+}
+
+#day{
+    font-size: 18px;
+}
+
+#date{
+    font-size: 12px;
 }
 
 #last-right {
@@ -219,8 +236,16 @@ clearfix:after {
     width: 70px;
 }
 
-/* ------- Five-Days --------TODO: Better Format */
+#min-temp{
+    color: #b1cad1;
+}
 
+#max-temp{
+    color: #ff8835;
+}
+
+
+/* ------- Five-Days -------- */
 
 #content-five-days{
     background: #fff;

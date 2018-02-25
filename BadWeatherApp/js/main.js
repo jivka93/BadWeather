@@ -199,7 +199,8 @@ function createTomorrowTab(json) {
             <p id="weather-text">CloudsText</p> 
         </div>
         <div id="middle" class="column">
-            <p>3°</p>
+            <p id="av-degrees"></p>
+            <p>Average temperature</p>
         </div>
         <div id="right" class="column">
             <p>Min. Temperature:</p>
@@ -283,7 +284,7 @@ function createTomorrowTab(json) {
     var windDirectionWind = $(`#wind-direction`);
     windDirectionWind.html(windDir);
 
-    var averageTemperature = $('#middle');
+    var averageTemperature = $('#av-degrees');
     averageTemperature.html(averageTemp + "°");
 
     var tomorrowDate = $('#date');
