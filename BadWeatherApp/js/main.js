@@ -329,8 +329,7 @@ function createFiveDaysTab(json) {
         <div class="weather-icon-5days" >
             <img id="weather-icon${i}"class="days-icon" src="images/clouds.png" alt="BadWeather">
         </div>
-        <div class="title" id="title${i}">
-        </div>
+        <div class="title" id="title${i}"></div>
         <div class="temp" id="temperature${i}">
             <div class="temp-min" id="tempMin${i}"></div>/
             <div class="temp-max" id="tempMax${i}"></div>

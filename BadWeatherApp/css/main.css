@@ -118,6 +118,7 @@ body {
 .content {
     box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.267);
     margin-bottom: 30px;
+    width:100%;
 }
 
 .inactive-content{
@@ -221,24 +222,25 @@ clearfix:after {
 /* ------- Five-Days --------TODO: Better Format */
 
 
-
 #content-five-days{
     background: #fff;
     list-style: none;
-    height: 45%;
+    height: 300px;
 }
 
 .listdays{
-    
-    padding: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
     text-align: center;
     border-right: solid 1.7px rgb(216, 216, 216);
-    margin: 10px;
-    width: 15%;
-    height: 300px;
-    display: inline-block;
-    
+    margin-top: 10px;
+    width: 20%;
+    height: 280px;
+    display: inline-block; 
 }
+
 #content-list li:last-child{
     border-right:none;
 }
@@ -257,8 +259,7 @@ clearfix:after {
     margin-bottom: 5px;
 }
 
-.weather-icon-5days .days-icon  {
-    
+.weather-icon-5days .days-icon  {   
     width: 70px;
 }
 
@@ -275,17 +276,24 @@ clearfix:after {
     display: inline;
     font-size: 22px;
 }
+
 .temp .temp-max {
     color: #ff8835;
     display: inline;
     font-size: 22px;
 }
+
 .listdays .wind {
     display: block;
     color: #454545;
     font-size: 20px;
     font-weight: bold;
 }
-    ul, menu, dir {
+
+ul, menu, dir {
     -webkit-padding-start: 0px;
+}
+
+#day32{
+    border-right: none;
 }
