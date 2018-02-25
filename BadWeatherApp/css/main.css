@@ -270,12 +270,16 @@ clearfix:after {
     margin-bottom: 7px; 
 }
 
-.listdays .temperature {
-    display: block;
+.temp .temp-min {
     color: #7b8f9e;
+    display: inline;
     font-size: 22px;
 }
-
+.temp .temp-max {
+    color: #ff8835;
+    display: inline;
+    font-size: 22px;
+}
 .listdays .wind {
     display: block;
     color: #454545;

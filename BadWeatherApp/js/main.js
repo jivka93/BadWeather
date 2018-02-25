@@ -331,11 +331,11 @@ function createFiveDaysTab(json) {
         </div>
         <div class="title" id="title${i}">
         </div>
-        <div class="temperature" id="temperature${i}">
-            <div class="min" id="tempMin${i}"></div>
-            <div class="max" id="tempMax${i}"></div>
+        <div class="temp" id="temperature${i}">
+            <div class="temp-min" id="tempMin${i}"></div>/
+            <div class="temp-max" id="tempMax${i}"></div>
         </div>
-        <div class="wind"></div>
+        <div class="wind" id ="wind${i}"></div>
     </div> 
     
   `)
@@ -364,16 +364,16 @@ function createFiveDaysTab(json) {
                 minT5d = allTemps[k];
             }
         }
-        $(minTemp5Days).html("Min Temp: " + (minT5d.toFixed(0) - 273.15).toFixed(0));
+        $(minTemp5Days).html((minT5d.toFixed(0) - 273.15).toFixed(0)+'°');
 
         var maxTemp5Days = $(`#tempMax${i}`);
         var maxT5d = -1000;
         for (var k = i; k < i + 8; k += 1) {
-            if (maxT5d < allTemps[k]) {
+            if (maxT5d < allTemps[k]) { 
                 maxT5d = allTemps[k];
             }
         }
-        $(maxTemp5Days).html("Max Temp: " + (maxT5d.toFixed(0) - 273.15).toFixed(0));
+        $(maxTemp5Days).html((maxT5d.toFixed(0) - 273.15).toFixed(0)+'°');
 
         var weather5days = (json.list[i].weather[0].main);
         if (weather5days == "Clouds") {
@@ -389,7 +389,8 @@ function createFiveDaysTab(json) {
         } else {
             $(`#weather-icon${i}`).attr("src", "images/other.png");
         }
-
-
+        var wind = $(`#wind${i}`);
+        var windSpeed = (json.list[i].wind.speed);
+        $(wind).html(windSpeed.toFixed(0)+" m/s");
     }
 }
