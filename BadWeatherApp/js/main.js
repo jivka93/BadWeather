@@ -210,8 +210,11 @@ function createTomorrowTab(json) {
             <p>Wind Direction:</p>
         </div>
         <div id="last-right" class="column">
-            <p id="min-temp"></p>
-            <p id="max-temp"></p>
+            <p class="line" id="min-temp"></p>
+            <p class="line" id="min-temp-hour"></p>
+            <br/>
+            <p class="line" id="max-temp"></p>
+            <p class="line" id="max-temp-hour"></p>
             <p id="humidity"></p>
             <p id="wind-speed"></p>
             <p id="wind-direction"></p>
@@ -223,6 +226,8 @@ function createTomorrowTab(json) {
     // Filling
     var minTemp = 1000;
     var maxTemp = -1000;
+    var minTempHour = "";
+    var maxTempHour = "";
 
     var sumTemp = 0;
     var sumHummidity = 0;
@@ -233,10 +238,12 @@ function createTomorrowTab(json) {
         var currentMin = (parseInt(json.list[i].main.temp_min)).toFixed(0);
         if (currentMin < minTemp) {
             minTemp = currentMin;
+            minTempHour = json.list[i].dt_txt.split(" ")[1].substr(0, 5);
         }
         var currentMax = (parseInt(json.list[i].main.temp_max)).toFixed(0);
         if (currentMax > maxTemp) {
             maxTemp = currentMax;
+            maxTempHour = json.list[i].dt_txt.split(" ")[1].substr(0, 5);
         }
         sumTemp += parseInt(json.list[i].main.temp_max);
         sumHummidity += parseInt(json.list[i].main.humidity);
@@ -272,8 +279,14 @@ function createTomorrowTab(json) {
     var minimumTemp = $(`#min-temp`);
     minimumTemp.html(minTemp.toFixed(0) + "°");
 
+    var minimumHour = $(`#min-temp-hour`);
+    minimumHour.html(" at " + minTempHour);
+
     var maximumTemp = $(`#max-temp`);
     maximumTemp.html(maxTemp.toFixed(0) + "°");
+
+    var maximumHour = $(`#max-temp-hour`);
+    maximumHour.html(" at " + maxTempHour);
 
     var humidityH = $(`#humidity`);
     humidityH.html(humidity + " %");

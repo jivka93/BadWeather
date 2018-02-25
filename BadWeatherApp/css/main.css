@@ -168,6 +168,7 @@ table tr td .smaller-text {
     width: 50px;
 }
 
+
 /* ------- Tomorrow -------- */
 
 .content-tomorrow {
@@ -205,7 +206,7 @@ clearfix:after {
 }
 
 #right {
-    width: 25%;
+    width: 26%;
     background-color: #424242;
     color: white;
     min-height: 220px;
@@ -223,7 +224,7 @@ clearfix:after {
 }
 
 #last-right {
-    width: 25%;
+    width: 24%;
     background-color: #424242;
     color: white;
     min-height: 220px;
@@ -242,6 +243,10 @@ clearfix:after {
 
 #max-temp{
     color: #ff8835;
+}
+
+.line{
+    display: inline-block;
 }
 
 
