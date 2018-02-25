@@ -335,9 +335,10 @@ ul, menu, dir {
 }
 
 .new-title{
-    color: rgb(63, 62, 62);
+    color: rgb(112, 109, 109);
     font-size: 30px;
     padding-left: 30px;
+    font-weight: bold;
 }
 
 .video{
