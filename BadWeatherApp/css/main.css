@@ -120,6 +120,12 @@ body {
     margin-bottom: 30px;
 }
 
+.inactive-content{
+    display :none !important;
+}
+.active-content{
+    display: block;
+}
 .td {
     width: 20%;
     background: rgba(255, 255, 255, 0.466);
@@ -218,10 +224,10 @@ clearfix:after {
 
 #content-five-days{
     background: #fff;
-    display: block;
     list-style: none;
     height: 45%;
 }
+
 .listdays{
     
     padding: 20px;
@@ -229,16 +235,12 @@ clearfix:after {
     border-right: solid 1.7px rgb(216, 216, 216);
     margin: 10px;
     width: 15%;
-    height: 90%;
+    height: 300px;
+    display: inline-block;
     
 }
 #content-list li:last-child{
     border-right:none;
-}
-
-.listdays {
-    display: inline-block;
-    
 }
 
 .listdays .day {

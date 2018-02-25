@@ -6,6 +6,7 @@ $(".dropdown-menu").on("click", "a", function () {
     clearWeatherContent();
     $('.tab-active').removeClass('tab-active').addClass('tab-inactive');
     $('#now-tab').addClass('tab-active').removeClass('tab-inactive');
+    
     onButtonClick(cityId);
 });
 
@@ -87,14 +88,20 @@ function changeContent() {
 
     if ($(this).is('#now-tab')) {
         clearWeatherContent();
+        $('.active-content').removeClass('active-content').addClass('inactive-content');
+        $('#content-current').removeClass('inactive-content').addClass('active-content');
         createCurrentTab(data);
     }
     if ($(this).is('#tomorrow-tab')) {
         clearWeatherContent();
+        $('.active-content').removeClass('active-content').addClass('inactive-content');
+        $('#content-tomorrow').removeClass('inactive-content').addClass('active-content');
         createTomorrowTab(data);
     }
     if ($(this).is('#five-days-tab')) {
         clearWeatherContent();
+        $('.active-content').removeClass('active-content').addClass('inactive-content');
+        $('#content-five-days').removeClass('inactive-content').addClass('active-content');
         createFiveDaysTab(data);
     }
 };
@@ -306,15 +313,14 @@ function createTomorrowTab(json) {
 }
 
 function createFiveDaysTab(json) {
-    $('#content-five-days').html("");
     // Creating
     var allTemps = [];
     for (var i = 0; i < 40; i += 1) {
         allTemps.push(json.list[i].main.temp);
     }
-    console.log(allTemps);
     for (var i = 0; i < 40; i += 8) {
         var col = $(`
+        
     <div id="day${i}" class="tab-five-days listdays">
         <div class="day" id="day-${i}"></div>
         <div class="date" id="date${i}"></div>
@@ -329,9 +335,13 @@ function createFiveDaysTab(json) {
         </div>
         <div class="wind"></div>
     </div> 
+    
   `)
 
         $("#content-five-days").append(col);
+    }
+
+    for (var i = 0; i < 40; i += 8) {
 
         var day = $(`#day-${i}`);
         var d = new Date(json.list[i].dt_txt);
@@ -344,7 +354,6 @@ function createFiveDaysTab(json) {
 
         var title5days = $(`#title${i}`);
         $(title5days).html(json.list[i].weather[0].description);
-        console.log(title5days);
 
         var minTemp5Days = $(`#tempMin${i}`);
         var minT5d = 1000;
@@ -363,7 +372,7 @@ function createFiveDaysTab(json) {
             }
         }
         $(maxTemp5Days).html("Max Temp: " + (maxT5d.toFixed(0) - 273.15).toFixed(0));
-     
+
         var weather5days = (json.list[i].weather[0].main);
         if (weather5days == "Clouds") {
             $(`#weather-icon${i}`).attr("src", "images/clouds.png");
