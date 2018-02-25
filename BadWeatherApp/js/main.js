@@ -307,12 +307,13 @@ function createTomorrowTab(json) {
 
 function createFiveDaysTab(json) {
     $('#content-five-days').html("");
+
     // Creating
     var allTemps = [];
     for (var i = 0; i < 40; i += 1) {
         allTemps.push(json.list[i].main.temp);
     }
-    console.log(allTemps);
+
     for (var i = 0; i < 40; i += 8) {
         var col = $(`
     <div id="day${i}" class="tab-five-days listdays">
@@ -344,7 +345,6 @@ function createFiveDaysTab(json) {
 
         var title5days = $(`#title${i}`);
         $(title5days).html(json.list[i].weather[0].description);
-        console.log(title5days);
 
         var minTemp5Days = $(`#tempMin${i}`);
         var minT5d = 1000;
