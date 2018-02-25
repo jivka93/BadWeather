@@ -327,3 +327,41 @@ ul, menu, dir {
 #day32{
     border-right: none;
 }
+
+/*------------- Cameras ----------------*/
+.side{
+    margin-bottom: 40px;
+    width:100%;
+}
+
+.new-title{
+    color: rgb(63, 62, 62);
+    font-size: 30px;
+    padding-left: 30px;
+}
+
+.video{
+    display: inline-block;
+    padding-right: 10px;
+    padding-left: 20px;
+}
+
+.heading{
+    color: rgb(63, 62, 62);
+    font-size: 15px;
+    padding-left: 15px;
+    padding-top: 15px;
+    font-weight: bold;
+}
+
+/*------------- Video Report ----------------*/
+.video-report{
+    position: relative;
+    left: 20%;
+    right: 20%;
+}
+
+#video-report{
+    box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.267);
+    margin-bottom: 30px;
+}
