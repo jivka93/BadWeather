@@ -275,10 +275,6 @@ clearfix:after {
     display: inline-block; 
 }
 
-#content-list li:last-child{
-    border-right:none;
-}
-
 .listdays .day {
     display: block;
     color: #454545;
@@ -322,10 +318,6 @@ clearfix:after {
     color: #454545;
     font-size: 20px;
     font-weight: bold;
-}
-
-ul, menu, dir {
-    -webkit-padding-start: 0px;
 }
 
 #day32{
