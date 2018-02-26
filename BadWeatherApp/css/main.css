@@ -137,6 +137,7 @@ body {
 .active-content{
     display: block;
 }
+
 .td {
     width: 20%;
     background: rgba(255, 255, 255, 0.466);
@@ -349,16 +350,4 @@ clearfix:after {
     padding-left: 15px;
     padding-top: 15px;
     font-weight: bold;
-}
-
-/*------------- Video Report ----------------*/
-.video-report{
-    position: relative;
-    left: 20%;
-    right: 20%;
-}
-
-#video-report{
-    box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.267);
-    margin-bottom: 30px;
 }

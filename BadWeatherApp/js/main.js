@@ -106,6 +106,12 @@ function changeContent() {
         $('#content-five-days').removeClass('inactive-content').addClass('active-content');
         createFiveDaysTab(data);
     }
+    if ($(this).is('#map')) {
+        clearWeatherContent();
+        $('.active-content').removeClass('active-content').addClass('inactive-content');
+        // $('#map').removeClass('inactive-content').addClass('active-content');
+        // createFiveDaysTab(data);
+    }
 };
 
 
