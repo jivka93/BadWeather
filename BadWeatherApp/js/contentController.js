@@ -11,28 +11,28 @@ var contentController = (function () {
         })
 
         if ($(this).is('#now-tab')) {
-            clearWeatherContent();
+            clearContent.clear();
             RemoveActiveContent();
             $('#content-current').removeClass('inactive-content').addClass('active-content');
             CreateContent.CurrentTab();
-            FillContent().CurrentTab(data);
+            FillContent.CurrentTab(data);
         };
         if ($(this).is('#tomorrow-tab')) {
-            clearWeatherContent();
+            clearContent.clear();
             RemoveActiveContent();
             $('#content-tomorrow').removeClass('inactive-content').addClass('active-content');
             CreateContent.TomorrowTab();
-            FillContent().TomorrowTab(data);
+            FillContent.TomorrowTab(data);
         };
         if ($(this).is('#five-days-tab')) {
-            clearWeatherContent();
+            clearContent.clear();
             RemoveActiveContent();
             $('#content-five-days').removeClass('inactive-content').addClass('active-content');
             CreateContent.FiveDaysTab();
-            FillContent().FiveDaysTab(data);
+            FillContent.FiveDaysTab(data);
         };
         if ($(this).is('#map-tab')) {
-            clearWeatherContent();
+            clearContent.clear();
             RemoveActiveContent();
             $('#content-map').removeClass('inactive-content').addClass('active-content');
             // createMapTab(data);
@@ -44,4 +44,3 @@ var contentController = (function () {
     }
 });
 
-$('.tab').on('click', contentController().ChangeContent);

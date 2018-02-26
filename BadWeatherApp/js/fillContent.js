@@ -209,4 +209,4 @@ var FillContent = (function() {
        TomorrowTab: fillTomorrowTab,
        FiveDaysTab : fillFiveDaysTab
     };
-})
+}());

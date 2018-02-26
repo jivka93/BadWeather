@@ -1,6 +1,6 @@
 $(".dropdown-menu").on("click", "a", function () {
     let cityId = $(this).attr("id");
-    clearWeatherContent();
+    clearContent.clear();
     $('.tab-active').removeClass('tab-active').addClass('tab-inactive');
     $('#now-tab').addClass('tab-active').removeClass('tab-inactive');
     $('.active-content').removeClass('active-content').addClass('inactive-content');
@@ -9,16 +9,15 @@ $(".dropdown-menu").on("click", "a", function () {
     onButtonClick(cityId);
 });
 
-function clearWeatherContent() {
-    $('#content-five-days').html('');
-    $('#content-tomorrow').html('');
-    $('#content-current').html('');
-    $('#content-map').html('');
-}
+
 onButtonClick("727011");
 
 function onButtonClick(cityId) {
-    $.get(`http://api.openweathermap.org/data/2.5/forecast?id=${cityId}&appid=2efb9211ec2c1db3d00ea14c0d24c30d`, onDataRetrieved);
+    var baseUrl = config.baseUrl;
+    var key = config.key;
+    var id = cityId
+    var url = baseUrl + id + key;
+    $.get(url, onDataRetrieved);
 
 }
 
@@ -32,7 +31,7 @@ function onDataRetrieved(json) {
     sessionStorage.setItem("data", JSON.stringify(json));
 
     CreateContent.CurrentTab();
-    FillContent().CurrentTab(JSON.parse(sessionStorage.getItem("data")));
+    FillContent.CurrentTab(JSON.parse(sessionStorage.getItem("data")));
     BackgroundController().SetBackground(json);
     
 }

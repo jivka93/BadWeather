@@ -1,0 +1,1 @@
+$('.tab').on('click', contentController().ChangeContent);
