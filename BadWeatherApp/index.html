@@ -19,7 +19,7 @@
 
 
 <body id="body">
-    
+
     <main>
         <link rel="main" type="text/css" href="main.css">
 
@@ -40,13 +40,13 @@
                         </a>
                         <div class="dropdown-menu">
                             <a class="dropdown-item" id="727011" href="#">Sofia</a>
-                            <a class="dropdown-item" id="729730" href="#">Kyustendil</a>   
+                            <a class="dropdown-item" id="729730" href="#">Kyustendil</a>
                             <a class="dropdown-item" id="728193" href="#">Plovdiv</a>
                             <a class="dropdown-item" id="726050" href="#">Varna</a>
                             <a class="dropdown-item" id="732770" href="#">Burgas</a>
                             <a class="dropdown-item" id="726848" href="#">Stara Zagora</a>
                             <a class="dropdown-item" id="725993" href="#">Veliko Turnovo</a>
-                         
+
                         </div>
                     </li>
                     <li class="nav-item dropdown">
@@ -103,7 +103,7 @@
                 <div id="content-five-days" class="inactive-content">
                 </div>
                 <div id="content-map" class="inactive-content">
-                        <div id="map-canvas"></div>
+                    <div id="map-canvas"></div>
                 </div>
             </div>
 
@@ -115,24 +115,34 @@
             <div id="wrap">
                 <div class="video">
                     <div class="heading">Bansko (Bulgaria)</div>
-                    <iframe class="content" width="270" height="170" src="http://cdn.livestream.com/embed/bansko?layout=4&amp;autoplay=false&amp;width=560&amp;height=340" style="border:0;outline:0" frameborder="0" scrolling="no"></iframe>
+                    <iframe class="content" width="270" height="170" src="http://cdn.livestream.com/embed/bansko?layout=4&amp;autoplay=false&amp;width=560&amp;height=340"
+                        style="border:0;outline:0" frameborder="0" scrolling="no"></iframe>
                 </div>
                 <div class="video">
-                        <div class="heading">Mykonos Island (Greece)</div>
-                        <iframe class="content" width="270" height="170" src="http://cdn.livestream.com/embed/mykonoslive?layout=4&amp;autoplay=false&amp;width=560&amp;height=340" style="border:0;outline:0" frameborder="0" scrolling="no"></iframe>
+                    <div class="heading">Mykonos Island (Greece)</div>
+                    <iframe class="content" width="270" height="170" src="http://cdn.livestream.com/embed/mykonoslive?layout=4&amp;autoplay=false&amp;width=560&amp;height=340"
+                        style="border:0;outline:0" frameborder="0" scrolling="no"></iframe>
                 </div>
                 <div class="video">
-                        <div class="heading">New York City (USA)</div>
-                        <iframe class="content" width="270" height="170" src="http://cdn.livestream.com/embed/nyc?layout=4&amp;autoplay=false&amp;width=560&amp;height=340" style="border:0;outline:0" frameborder="0" scrolling="no"></iframe>
+                    <div class="heading">New York City (USA)</div>
+                    <iframe class="content" width="270" height="170" src="http://cdn.livestream.com/embed/nyc?layout=4&amp;autoplay=false&amp;width=560&amp;height=340"
+                        style="border:0;outline:0" frameborder="0" scrolling="no"></iframe>
                 </div>
             </div>
         </div>
 
     </main>
 
-    <script src="js/cors.js" type="text/javascript"></script>
-    <script src="js/main.js" type="text/javascript"></script>
+
+
+
+    <script src="js/contentController.js" type="text/javascript"></script>
+    <script src="js/backgroundController.js" type="text/javascript"></script>
+    <script src="js/createContent.js" type="text/javascript"></script>
+    <script src="js/fillContent.js" type="text/javascript"></script>
+    
     <script src="js/map.js" type="text/javascript"></script>
+    <script src="js/main.js" type="text/javascript"></script>
 
 </body>
 
