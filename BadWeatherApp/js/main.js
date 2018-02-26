@@ -31,8 +31,8 @@ function onDataRetrieved(json) {
     
     sessionStorage.setItem("data", JSON.stringify(json));
 
-    createCurrentTab();
-    fillCurrentTab(JSON.parse(sessionStorage.getItem("data")));
-    createDeafultBackground(json);
+    CreateContent.CurrentTab();
+    FillContent().CurrentTab(JSON.parse(sessionStorage.getItem("data")));
+    BackgroundController().SetBackground(json);
     
 }

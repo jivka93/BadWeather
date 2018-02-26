@@ -1,3 +1,5 @@
+var dataStorage = (function(){
+
 var cities = {
     'Vaduz': 3042030,
     'Vilnius': 593116,
@@ -104,4 +106,9 @@ var cities = {
     'Riga': 456172,
     'Beirut': 276781,
     'Tripoli': 2210247
-}
+};
+
+ return{
+     cities : cities;
+ }
+})

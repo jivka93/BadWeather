@@ -1,6 +1,9 @@
-function createCurrentTab() {
-    for (var i = 0; i < 8; i += 1) {
-        var row = $(`
+var CreateContent = (function () {
+    
+    var createCurrentTab = (function () {
+        for (var i = 0; i < 8; i += 1) {
+
+            var row = $(`
         <table id="current-weather-table">    
             <tr class="content-row" id="row${i}">
             <td class="time td">
@@ -28,13 +31,13 @@ function createCurrentTab() {
             </tr>
         </table>`);
 
-        $("#content-current").append(row);
-    }
-}
+            $("#content-current").append(row);
+        };
+    });
 
-function createTomorrowTab() {
+    var createTomorrowTab = (function () {
 
-    var row = $(`
+        var row = $(`
     <div class="content-tomorrow clearfix">    
         <div id="left" class="column">
             <p id="day"></p>
@@ -67,14 +70,14 @@ function createTomorrowTab() {
         </div>
     </div>`);
 
-    $("#content-tomorrow").append(row);
+        $("#content-tomorrow").append(row);
 
-}
+    });
 
-function createFiveDaysTab() {
+    var createFiveDaysTab = (function () {
 
-    for (var i = 0; i < 40; i += 8) {
-        var col = $(`
+        for (var i = 0; i < 40; i += 8) {
+            var col = $(`
         
     <div id="day${i}" class="tab-five-days listdays">
         <div class="day" id="day-${i}"></div>
@@ -91,7 +94,14 @@ function createFiveDaysTab() {
     </div> 
     
   `)
-        $("#content-five-days").append(col);
-    }
+            $("#content-five-days").append(col);
+        };
 
-}
+    });
+
+    return {
+        CurrentTab: createCurrentTab,
+        TomorrowTab: createTomorrowTab,
+        FiveDaysTab: createFiveDaysTab
+    };
+})();
