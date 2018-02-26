@@ -325,6 +325,25 @@ clearfix:after {
     border-right: none;
 }
 
+/*------------- Map ----------------*/
+#map-window{
+    height: 80%;
+    width: 80%;
+    background-color: #ffffff;
+    margin-bottom: 40px;
+}
+
+#map-canvas {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.gm-style-iw {
+    text-align: center;
+} 
+
 /*------------- Cameras ----------------*/
 .side{
     margin-bottom: 40px;

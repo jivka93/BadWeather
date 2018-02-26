@@ -1,5 +1,58 @@
 ///TODO : Extract functions in different files.
 
+function createMapTab(json) {        
+    var window = $(`
+    <div id="map-window">
+    
+    </div>`);   
+    $("#content-map").append(window);
+}
+
+// This example uses the Google Maps JavaScript API's Data layer
+// to create a rectangular polygon with 2 holes in it.
+function initMap() {
+    var map = new google.maps.Map(document.getElementById('#content-map'), {
+      zoom: 6,
+      center: {lat: -33.872, lng: 151.252},
+    });
+  
+    // Define the LatLng coordinates for the outer path.
+    var outerCoords = [
+      {lat: -32.364, lng: 153.207}, // north west
+      {lat: -35.364, lng: 153.207}, // south west
+      {lat: -35.364, lng: 158.207}, // south east
+      {lat: -32.364, lng: 158.207}  // north east
+    ];
+  
+    // Define the LatLng coordinates for an inner path.
+    var innerCoords1 = [
+      {lat: -33.364, lng: 154.207},
+      {lat: -34.364, lng: 154.207},
+      {lat: -34.364, lng: 155.207},
+      {lat: -33.364, lng: 155.207}
+    ];
+  
+    // Define the LatLng coordinates for another inner path.
+    var innerCoords2 = [
+      {lat: -33.364, lng: 156.207},
+      {lat: -34.364, lng: 156.207},
+      {lat: -34.364, lng: 157.207},
+      {lat: -33.364, lng: 157.207}
+    ];
+  
+    map.data.add({geometry: new google.maps.Data.Polygon([outerCoords,
+                                                          innerCoords1,
+                                                          innerCoords2])})
+    // var data = JSON.parse(sessionStorage.getItem("data"));
+    map.data.loadGeoJson('https://storage.googleapis.com/mapsdevsite/json/google.json');
+    // $("#content-map").append(map);
+  }
+
+
+
+
+
+
 
 $(".dropdown-menu").on("click", "a", function () {
     let cityId = $(this).attr("id");
@@ -16,6 +69,7 @@ function clearWeatherContent() {
     $('#content-five-days').html('');
     $('#content-tomorrow').html('');
     $('#content-current').html('');
+    $('#content-map').html('');
 }
 onButtonClick("727011");
 
@@ -106,11 +160,12 @@ function changeContent() {
         $('#content-five-days').removeClass('inactive-content').addClass('active-content');
         createFiveDaysTab(data);
     }
-    if ($(this).is('#map')) {
+    if ($(this).is('#map-tab')) {
         clearWeatherContent();
         $('.active-content').removeClass('active-content').addClass('inactive-content');
-        // $('#map').removeClass('inactive-content').addClass('active-content');
-        // createFiveDaysTab(data);
+        $('#content-map').removeClass('inactive-content').addClass('active-content');
+        // createMapTab(data);
+        // initMap();
     }
 };
 
@@ -412,4 +467,6 @@ function createFiveDaysTab(json) {
         var windSpeed = (json.list[i].wind.speed);
         $(wind).html(windSpeed.toFixed(0)+" m/s");
     }
+
+
 }
