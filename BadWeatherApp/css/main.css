@@ -13,7 +13,7 @@ main {
 body {
     background-image: url("../images/day.jpeg");
     background-repeat: no-repeat;
-    background-size: 100% 460px;
+    background-size: 100% 500px;
     font-family: Helvetica, Arial, sans-serif;
     background-color: rgb(233, 233, 233);
 }
@@ -130,6 +130,11 @@ body {
 
 .content {
     box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.267);
+    margin-bottom: 40px;
+    width:100%;
+}
+
+.content-box{
     margin-bottom: 30px;
     width:100%;
 }
@@ -332,7 +337,7 @@ clearfix:after {
 
 /*------------- Cameras ----------------*/
 .side{
-    margin-bottom: 40px;
+    margin-bottom: 30px;
     width:100%;
 }
 
@@ -341,6 +346,10 @@ clearfix:after {
     font-size: 30px;
     padding-left: 30px;
     font-weight: bold;
+}
+
+#wrap{
+    background: #fff;
 }
 
 .video{
