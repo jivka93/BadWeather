@@ -416,7 +416,7 @@ var cities = [{
     },
     {
         value: 'Tripoli',
-        data: '221024'
+        data: '266826'
     },
     {
         value: 'Borovets',

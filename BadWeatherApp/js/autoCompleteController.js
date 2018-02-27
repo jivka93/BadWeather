@@ -2,6 +2,7 @@ $(function () {
 
 
   $('#autocomplete').autocomplete({
+    autoSelectFirst: true,
     lookup: cities,
     onSelect: function (suggestion) {
       mainController.onButtonClick(suggestion.data);
