@@ -5,7 +5,7 @@ var FillContent = (function() {
         for (var i = 0; i < 8; i += 1) {
 
             var currentHour = $(`#hour-${i}`);
-            currentHour.html(json.list[i].dt_txt.split(' ')[1].substr(0, 5));
+            currentHour.html(json.list[i].dt_txt.split(' ')[1].substr(0, 5)+' GMT');
 
             var currentDate = $(`#date-${i}`);
             currentDate.html(json.list[i].dt_txt.split(' ')[0]);

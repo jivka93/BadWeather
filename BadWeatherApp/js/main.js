@@ -10,7 +10,6 @@ var mainController = (function () {
     };
 
     var onDataRetrieved = function (json) {
-
         var cityName = $('#city-name');
         cityName.html(json.city.name);
         var countryName = $('#country-name');

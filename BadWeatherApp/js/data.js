@@ -452,31 +452,31 @@ var cities = [{
     },
     {
         value: 'Paris',
-        data: '6455259 '
+        data: '6455259'
     },
     {
         value: 'Berlin',
-        data: '2950158 '
+        data: '2950158'
     },
     {
         value: 'Rome',
-        data: '3169070 '
+        data: '3169070'
     },
     {
         value: 'Brussels',
-        data: ' 2800866 '
+        data: '2800866'
     },
     {
         value: 'Amsterdam',
-        data: ' 2759794 '
+        data: '2759794'
     },
     {
         value: 'Vienna',
-        data: ' 2761369 '
+        data: '2761369'
     },
     {
         value: 'London',
-        data: ' 2643743 '
+        data: '2643743'
     }
 
 ];
