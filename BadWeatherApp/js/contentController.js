@@ -31,14 +31,7 @@ var contentController = (function () {
             CreateContent.FiveDaysTab();
             FillContent.FiveDaysTab(data);
         };
-        if ($(this).is('#map-tab')) {
-            clearContent.clear();
-            RemoveActiveContent();
-            $('#content-map').removeClass('inactive-content').addClass('active-content');
-            
-            // createMapTab(data);
-            // initMap();
-        };
+        
     });
     return {
         ChangeContent: changeContent
