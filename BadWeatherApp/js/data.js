@@ -421,5 +421,58 @@ var cities = [{
     {
         value: 'Borovets',
         data: '733055'
+    },
+    {
+        value: 'Sofia',
+        data: "727011"
+    },
+    {
+        value: 'Kyustendil',
+        data: "729730"
+    },
+    {
+        value: 'Plovdiv',
+        data: "728193"
+    },
+    {
+        value: 'Varna',
+        data: "726050"
+    },
+    {
+        value: 'Burgas',
+        data: "732770"
+    },
+    {
+        value: 'Stara Zagora',
+        data: "726848"
+    },
+    {
+        value: 'Veliko Turnovo',
+        data: "725993"
+    },
+    {
+        value: 'Paris',
+        data: '6455259 '
+    },
+    {
+        value: 'Berlin',
+        data: '2950158 '
+    },
+    {
+        value: 'Rome',
+        data: '3169070 '
+    },
+    {
+        value: 'Brussels',
+        data: ' 2800866 '
+    },
+    {
+        value: 'Amsterdam',
+        data: ' 2759794 '
+    },
+    {
+        value: 'Vienna',
+        data: '2761369 '
     }
+
 ];
