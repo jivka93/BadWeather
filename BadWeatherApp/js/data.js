@@ -424,31 +424,31 @@ var cities = [{
     },
     {
         value: 'Sofia',
-        data: "727011"
+        data: '727011'
     },
     {
         value: 'Kyustendil',
-        data: "729730"
+        data: '729730'
     },
     {
         value: 'Plovdiv',
-        data: "728193"
+        data: '728193'
     },
     {
         value: 'Varna',
-        data: "726050"
+        data: '726050'
     },
     {
         value: 'Burgas',
-        data: "732770"
+        data: '732770'
     },
     {
         value: 'Stara Zagora',
-        data: "726848"
+        data: '726848'
     },
     {
         value: 'Veliko Turnovo',
-        data: "725993"
+        data: '725993'
     },
     {
         value: 'Paris',
