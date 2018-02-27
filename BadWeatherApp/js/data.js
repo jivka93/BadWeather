@@ -1,4 +1,4 @@
-var dataStorage = (function(){
+var data = (function(){
 
 var cities = {
     'Vaduz': 3042030,
@@ -109,6 +109,6 @@ var cities = {
 };
 
  return{
-     cities : cities;
+     cities : cities
  }
 })

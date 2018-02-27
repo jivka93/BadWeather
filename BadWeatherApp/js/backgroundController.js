@@ -6,40 +6,60 @@ var BackgroundController = (function () {
         var weather = (json.list[0].weather[0].main);
 
         if (hour > 6 && hour <= 8) {
-            $("#body").css("background-image", "url(../images/morning.jpeg)");
             if (weather == 'Snow') {
-                $("#body").css("background-image", "url(../images/giphy.gif")
+                $("#body").css("background-image", "url(images/giphy.gif");
             };
             if (weather == 'Rain') {
-                $("#body").css("background-image", "url(../images/rain.jpg")
+                $("#body").css("background-image", "url(images/rain/rainday.jpg");
+            };
+            if (weather == 'Cloud') {
+                $("#body").css("background-image", "url(images/cloud/cloudy.jpg");
+            };
+            if (weather == 'Clear') {
+                $("#body").css("background-image", "url(images/clear/morning1.jpg");
             };
         } else if (hour > 8 && hour <= 18) {
-            $("#body").css("background-image", "url(../images/day.jpeg)");
             if (weather == 'Snow') {
-                $("#body").css("background-image", "url((../images/giphy.gif")
+                $("#body").css("background-image", "url(images/giphy.gif");
             };
             if (weather == 'Rain') {
-                $("#body").css("background-image", "url(../images/rain.jpg")
+                $("#body").css("background-image", "url(images/rain/rainday.jpg");
+            };
+            if (weather == 'Cloud') {
+                $("#body").css("background-image", "url(images/cloud/cloudy.jpg");
+            };
+            if (weather == 'Clear') {
+                $("#body").css("background-image", "url(images/clear/sunny.jpg");
             };
         } else if (hour > 18 && hour <= 20) {
-            $("#body").css("background-image", "url(../images/evening.jpeg)");
             if (weather == 'Snow') {
-                $("#body").css("background-image", "url(../images/swow.jpg")
+                $("#body").css("background-image", "url(images/giphy.gif");
             };
             if (weather == 'Rain') {
-                $("#body").css("background-image", "url(../images/rain.jpg")
+                $("#body").css("background-image", "url(images/rain/rain.jpg");
+            };
+            if (weather == 'Cloud') {
+                $("#body").css("background-image", "url(images/cloud/cloudy.jpg");
+            };
+            if (weather == 'Clear') {
+                $("#body").css("background-image", "url(images/clear/evening1.jpg");
             };
         } else if (hour <= 6 || hour > 20) {
-            $("#body").css("background-image", "url(../images/night.png)");
             if (weather == 'Snow') {
-                $("#body").css("background-image", "url(../images/swow.jpg")
+                $("#body").css("background-image", "url(images/giphy.gif");
             };
             if (weather == 'Rain') {
-                $("#body").css("background-image", "url(../images/rain.jpg")
+                $("#body").css("background-image", "url(images/rain/rain.jpg");
+            };
+            if (weather == 'Cloud') {
+                $("#body").css("background-image", "url(images/cloud/night-cloud.jpeg");
+            };
+            if (weather == 'Clear') {
+                $("#body").css("background-image", "url(images/clear/night-sky5.jpg");
             };
         };
     });
-    return{
-        SetBackground : createDeafultBackground
+    return {
+        SetBackground: createDeafultBackground
     }
 });
