@@ -11,12 +11,12 @@ var mainController = (function () {
 
     var onDataRetrieved = function (json) {
 
-        var cityName = $("#city-name");
+        var cityName = $('#city-name');
         cityName.html(json.city.name);
-        var countryName = $("#country-name");
+        var countryName = $('#country-name');
         countryName.html(json.city.country);
 
-        sessionStorage.setItem("data", JSON.stringify(json));
+        sessionStorage.setItem('data', JSON.stringify(json));
 
         CreateContent.CurrentTab();
         FillContent.CurrentTab(json);
@@ -25,7 +25,7 @@ var mainController = (function () {
     };
 
     var onDropdownClick = function () {
-        let cityId = $(this).attr("id");
+        let cityId = $(this).attr('id');
         clearContent.clear();
         switchActive.ToToday();
         mainController.onButtonClick(cityId);
@@ -35,4 +35,4 @@ var mainController = (function () {
         onButtonClick: onButtonClick,
         onDropdownClick: onDropdownClick
     };
-}());
+})();

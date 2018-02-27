@@ -4,11 +4,11 @@ var contentController = (function () {
         $('.tab-active').removeClass('tab-active').addClass('tab-inactive');
         $(this).addClass('tab-active').removeClass('tab-inactive');
 
-        var data = JSON.parse(sessionStorage.getItem("data"));
+        var data = JSON.parse(sessionStorage.getItem('data'));
 
         var RemoveActiveContent = (function () {
             $('.active-content').removeClass('active-content').addClass('inactive-content');
-        })
+        });
 
         if ($(this).is('#now-tab')) {
             clearContent.clear();
@@ -35,12 +35,13 @@ var contentController = (function () {
             clearContent.clear();
             RemoveActiveContent();
             $('#content-map').removeClass('inactive-content').addClass('active-content');
+            
             // createMapTab(data);
             // initMap();
         };
     });
     return {
         ChangeContent: changeContent
-    }
+    };
 });
 

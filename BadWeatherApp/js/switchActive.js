@@ -9,5 +9,5 @@ var switchActive = (function () {
 
     return {
         ToToday: switchActive
-    }
-}());
+    };
+})();
