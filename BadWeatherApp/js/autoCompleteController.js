@@ -9,6 +9,7 @@ $(function () {
       CreateContent.CurrentTab();
       FillContent.CurrentTab(data);
       switchActive.ToToday();
+      clearContent.clear();
     }
   });
 
