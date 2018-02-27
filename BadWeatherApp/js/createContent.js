@@ -1,5 +1,5 @@
 var CreateContent = (function () {
-    
+
     var createCurrentTab = (function () {
         for (var i = 0; i < 8; i += 1) {
 
@@ -31,7 +31,7 @@ var CreateContent = (function () {
             </tr>
         </table>`);
 
-            $("#content-current").append(row);
+            $('#content-current').append(row);
         };
     });
 
@@ -70,7 +70,7 @@ var CreateContent = (function () {
         </div>
     </div>`);
 
-        $("#content-tomorrow").append(row);
+        $('#content-tomorrow').append(row);
 
     });
 
@@ -92,9 +92,8 @@ var CreateContent = (function () {
         </div>
         <div class="wind" id ="wind${i}"></div>
     </div> 
-    
-  `)
-            $("#content-five-days").append(col);
+`);
+            $('#content-five-days').append(col);
         };
 
     });
