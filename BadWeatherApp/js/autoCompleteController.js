@@ -1,16 +1,17 @@
-$(function(){
-    $('#autocomplete').autocomplete({
-      lookup: cities,
-      onSelect: function (suggestion) {
-        var thehtml = '<strong>City Name:</strong> ' + cities.value + ' <br> <strong>ID:</strong> ' + cities.data;
-        $('#outputcontent').html(thehtml);
-      }
-    });
-    
-    $( function() {
-      $( "#tags" ).autocomplete({
-        source: cities
-      });
-    } );
-  
+$(function () {
+
+
+  $('#autocomplete').autocomplete({
+    lookup: cities,
+    onSelect: function (suggestion) {
+      mainController.onButtonClick(suggestion.data);
+      var data = JSON.parse(sessionStorage.getItem("data"));
+      CreateContent.CurrentTab();
+      FillContent.CurrentTab(data);
+      switchActive.ToToday();
+    }
   });
+
+
+
+});
