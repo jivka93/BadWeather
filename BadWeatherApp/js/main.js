@@ -1,4 +1,4 @@
-var mainController = (function () {
+const mainController = (function () {
 
     let onButtonClick = function (cityId) {
         const baseUrl = apiConfig.baseUrl;
