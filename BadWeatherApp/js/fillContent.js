@@ -1,7 +1,10 @@
-let FillContent = (function() {
+let FillContent = (function () {
+    
+    let convertToCelsius =  function(temp){
+        return temp - 273.15;
+    }
 
-
-    let fillCurrentTab = (function(json) {
+    let fillCurrentTab = (function (json) {
         for (let i = 0; i < 8; i += 1) {
 
             let currentHour = $(`#hour-${i}`);
@@ -14,22 +17,10 @@ let FillContent = (function() {
             currentWeather.html(json.list[i].weather[0].main);
 
             let weather = (json.list[i].weather[0].main);
-            if (weather === 'Clouds') {
-                $(`#icon-${i}`).attr('src', 'images/clouds.png');
-            } else if (weather === 'Snow') {
-                $(`#icon-${i}`).attr('src', 'images/snow.png');
-            } else if (weather === 'Rain') {
-                $(`#icon-${i}`).attr('src', 'images/rain.png');
-            } else if (weather === 'Clear') {
-                $(`#icon-${i}`).attr('src', 'images/clear.png');
-            } else if (weather === 'Storm') {
-                $(`#icon-${i}`).attr('src', 'images/storm.png');
-            } else {
-                $(`#icon-${i}`).attr('src', 'images/other.png');
-            }
+            imageController.SetWeatherIcon(weather, i);
 
             let currentTemp = $(`#temp-${i}`);
-            let t = (json.list[i].main.temp - 273.15).toFixed(0) + '°';
+            let t = convertToCelsius(json.list[i].main.temp).toFixed(0) + '°';
             if (t === '-0°') {
                 t = '0°';
             }
@@ -44,7 +35,7 @@ let FillContent = (function() {
 
     });
 
-    let  fillTomorrowTab = (function(json) {
+    let fillTomorrowTab = (function (json) {
         let minTemp = 1000;
         let maxTemp = -1000;
         let minTempHour = '';
@@ -74,7 +65,7 @@ let FillContent = (function() {
 
         minTemp -= 273.15;
         maxTemp -= 273.15;
-        let averageTemp = (sumTemp / 8 - 273.15).toFixed(0);
+        let averageTemp = convertToCelsius(sumTemp / 8).toFixed(0);
         let humidity = (sumHummidity / 8).toFixed(0);
         let windSpeed = (sumWindSpeed / 8).toFixed(0);
         let windDirection = ((sumWindDirection / 8) % 360).toFixed(0);
@@ -143,32 +134,20 @@ let FillContent = (function() {
         tomorrowDay.html(dayName);
 
         let weather = (json.list[8].weather[0].main);
-        if (weather === 'Clouds') {
-            $('#tomorrow-icon').attr('src', 'images/clouds.png');
-        } else if (weather === 'Snow') {
-            $('#tomorrow-icon').attr('src', 'images/snow.png');
-        } else if (weather === 'Rain') {
-            $('#tomorrow-icon').attr('src', 'images/rain.png');
-        } else if (weather === 'Clear') {
-            $('#tomorrow-icon').attr('src', 'images/clear.png');
-        } else if (weather === 'Storm') {
-            $('#tomorrow-icon').attr('src', 'images/storm.png');
-        } else {
-            $('#tomorrow-icon').attr('src', 'images/other.png');
-        }
+        imageController.SetWeatherIcon(weather);
 
         let tomorrowWeatherText = $('#weather-text');
         tomorrowWeatherText.html(json.list[9].weather[0].description);
     });
 
-    let fillFiveDaysTab = (function(json) {
+    let fillFiveDaysTab = (function (json) {
         let allTemps = [];
         for (let i = 0; i < 40; i += 1) {
             allTemps.push(json.list[i].main.temp);
         };
 
         for (let i = 0; i < 40; i += 8) {
-            
+
             let day = $(`#day-${i}`);
             let d = new Date(json.list[i].dt_txt);
             let days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
@@ -188,7 +167,7 @@ let FillContent = (function() {
                     minT5d = allTemps[k];
                 }
             }
-            let min = (minT5d.toFixed(0) - 273.15).toFixed(0) + '°';
+            let min = convertToCelsius(minT5d).toFixed(0) + '°';
             if (min === '-0°') {
                 min = '0°';
             }
@@ -201,26 +180,14 @@ let FillContent = (function() {
                     maxT5d = allTemps[k];
                 }
             }
-            let max = (maxT5d.toFixed(0) - 273.15).toFixed(0) + '°';
+            let max = convertToCelsius(maxT5d).toFixed(0) + '°';
             if (max === '-0°') {
                 max = '0°';
             }
             $(maxTemp5Days).html(max);
 
             let weather5days = (json.list[i].weather[0].main);
-            if (weather5days === 'Clouds') {
-                $(`#weather-icon${i}`).attr('src', 'images/clouds.png');
-            } else if (weather5days === 'Snow') {
-                $(`#weather-icon${i}`).attr('src', 'images/snow.png');
-            } else if (weather5days === 'Rain') {
-                $(`#weather-icon${i}`).attr('src', 'images/rain.png');
-            } else if (weather5days === 'Clear') {
-                $(`#weather-icon${i}`).attr('src', 'images/clear.png');
-            } else if (weather5days === 'Storm') {
-                $(`#weather-icon${i}`).attr('src', 'images/storm.png');
-            } else {
-                $(`#weather-icon${i}`).attr('src', 'images/other.png');
-            }
+            imageController.SetWeatherIcon(weather5days, i);
             let wind = $(`#wind${i}`);
             let windSpeed = (json.list[i].wind.speed);
             $(wind).html(windSpeed.toFixed(0) + ' m/s');
@@ -228,8 +195,8 @@ let FillContent = (function() {
 
     });
     return {
-       CurrentTab: fillCurrentTab,
-       TomorrowTab: fillTomorrowTab,
-       FiveDaysTab: fillFiveDaysTab
+        CurrentTab: fillCurrentTab,
+        TomorrowTab: fillTomorrowTab,
+        FiveDaysTab: fillFiveDaysTab
     };
 })();

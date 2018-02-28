@@ -19,7 +19,7 @@ var mainController = (function () {
 
         CreateContent.CurrentTab();
         FillContent.CurrentTab(json);
-        BackgroundController().SetBackground(json);
+        imageController.SetBackground(json);
 
     };
 

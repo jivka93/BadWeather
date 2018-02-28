@@ -1,7 +1,7 @@
-let BackgroundController = (function () {
+let imageController = (function () {
 
     let createDeafultBackground = (function (json) {
-      
+
         let hour = parseInt((json.list[0].dt_txt.split(' ')[1].substr(0, 5)).split(':')[0]);
         let weather = (json.list[0].weather[0].main);
 
@@ -59,7 +59,64 @@ let BackgroundController = (function () {
             };
         };
     });
-    return {
-        SetBackground: createDeafultBackground
+
+    let setWeatherIcon = function (weather, i ) {
+
+        ////Changes Icons for tab "Now"
+        
+        
+        if (weather === 'Clouds') {
+            $(`#icon-${i}`).attr('src', 'images/clouds.png');
+        }
+        else if (weather === 'Snow') {
+            $(`#icon-${i}`).attr('src', 'images/snow.png'); 
+        }
+        else if (weather === 'Rain') {
+            $(`#icon-${i}`).attr('src', 'images/rain.png');
+        } 
+        else if (weather === 'Clear') {
+            $(`#icon-${i}`).attr('src', 'images/clear.png');
+        } 
+        else if (weather === 'Storm') {
+            $(`#icon-${i}`).attr('src', 'images/storm.png');
+        }
+        else {
+            $(`#icon-${i}`).attr('src', 'images/other.png');
+        };
+       
+
+        ////Changes Icons for tab "five-days"
+
+        if (weather === 'Clouds') {
+            $(`#weather-icon${i}`).attr('src', 'images/clouds.png');
+        } else if (weather === 'Snow') {
+            $(`#weather-icon${i}`).attr('src', 'images/snow.png');
+        } else if (weather === 'Rain') {
+            $(`#weather-icon${i}`).attr('src', 'images/rain.png');
+        } else if (weather === 'Clear') {
+            $(`#weather-icon${i}`).attr('src', 'images/clear.png');
+        } else if (weather === 'Storm') {
+            $(`#weather-icon${i}`).attr('src', 'images/storm.png');
+        } else {
+            $(`#weather-icon${i}`).attr('src', 'images/other.png');
+        }
+
+        if (weather === 'Clouds') {
+            $('#tomorrow-icon').attr('src', 'images/clouds.png');
+        } else if (weather === 'Snow') {
+            $('#tomorrow-icon').attr('src', 'images/snow.png');
+        } else if (weather === 'Rain') {
+            $('#tomorrow-icon').attr('src', 'images/rain.png');
+        } else if (weather === 'Clear') {
+            $('#tomorrow-icon').attr('src', 'images/clear.png');
+        } else if (weather === 'Storm') {
+            $('#tomorrow-icon').attr('src', 'images/storm.png');
+        } else {
+            $('#tomorrow-icon').attr('src', 'images/other.png');
+        }
     };
-});
+    return {
+        SetBackground: createDeafultBackground,
+        SetWeatherIcon : setWeatherIcon
+    };
+}());
