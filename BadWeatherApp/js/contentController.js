@@ -1,6 +1,11 @@
 const contentController = (function () {
 
     const changeContent = (function () {
+
+    let old = $('.tab-active');
+
+    if (!old.is($(this))) {
+
         $('.tab-active').removeClass('tab-active').addClass('tab-inactive');
         $(this).addClass('tab-active').removeClass('tab-inactive');
 
@@ -11,13 +16,17 @@ const contentController = (function () {
         })();
 
         if ($(this).is('#now-tab')) {
+
             clearContent.clear();
             $('#content-current').removeClass('inactive-content').addClass('active-content');
             $('#content-current').hide();
             CreateContent.CurrentTab();
             FillContent.CurrentTab(data);
             $('#content-current').fadeIn(1000);
-            
+
+            if (!old.is('#now-tab')) { //TODO
+
+            }
         };
         if ($(this).is('#tomorrow-tab')) {
             clearContent.clear();
@@ -34,8 +43,9 @@ const contentController = (function () {
             CreateContent.FiveDaysTab();
             FillContent.FiveDaysTab(data);
             $('#content-five-days').fadeIn(1000);
-        };
-        
+        };     
+    }
+       
     });
     return {
         ChangeContent: changeContent
