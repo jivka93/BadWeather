@@ -1,8 +1,8 @@
 var mainController = (function () {
 
     let onButtonClick = function (cityId) {
-        const baseUrl = config.baseUrl;
-        const key = config.key;
+        const baseUrl = apiConfig.baseUrl;
+        const key = apiConfig.key;
         const id = cityId;
         const url = baseUrl + id + key;
         $.get(url, onDataRetrieved);
