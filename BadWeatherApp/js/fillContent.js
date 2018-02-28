@@ -3,7 +3,32 @@ let FillContent = (function () {
     let convertToCelsius =  function(temp){
         return temp - 273.15;
     }
-
+    let getWindDirectionString = function(windDirection){
+        let windDirectionString ='';
+        if (337 < windDirection || windDirection <= 22) {
+            windDirectionString = 'N';
+        } else if (22 < windDirection && windDirection <= 67) {
+            windDirectionString = 'NE';
+        } else if (67 < windDirection && windDirection <= 112) {
+            windDirectionString = 'E';
+        } else if (112 < windDirection && windDirection <= 157) {
+            windDirectionString = 'SE';
+        } else if (157 < windDirection && windDirection <= 202) {
+            windDirectionString = 'S';
+        } else if (202 < windDirection && windDirection <= 247) {
+            windDirectionString = 'SW';
+        } else if (247 < windDirection && windDirection <= 292) {
+            windDirectionString = 'W';
+        } else if (292 < windDirection && windDirection <= 337) {
+            windDirectionString = 'NW';
+        }
+        return windDirectionString;
+    }
+    let getDayOfTheWeek = function(date){
+        let days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+        let dayName = days[date.getDay()];
+        return dayName;
+    }
     let fillCurrentTab = (function (json) {
         for (let i = 0; i < 8; i += 1) {
 
@@ -69,24 +94,8 @@ let FillContent = (function () {
         let humidity = (sumHummidity / 8).toFixed(0);
         let windSpeed = (sumWindSpeed / 8).toFixed(0);
         let windDirection = ((sumWindDirection / 8) % 360).toFixed(0);
-        let windDir = '';
-        if (337 < windDirection || windDirection <= 22) {
-            windDir = 'N';
-        } else if (22 < windDirection && windDirection <= 67) {
-            windDir = 'NE';
-        } else if (67 < windDirection && windDirection <= 112) {
-            windDir = 'E';
-        } else if (112 < windDirection && windDirection <= 157) {
-            windDir = 'SE';
-        } else if (157 < windDirection && windDirection <= 202) {
-            windDir = 'S';
-        } else if (202 < windDirection && windDirection <= 247) {
-            windDir = 'SW';
-        } else if (247 < windDirection && windDirection <= 292) {
-            windDir = 'W';
-        } else if (292 < windDirection && windDirection <= 337) {
-            windDir = 'NW';
-        }
+        let windDir = getWindDirectionString(windDirection);
+        
 
         let minimumTemp = $('#min-temp');
         let n = minTemp.toFixed(0) + '°';
@@ -128,10 +137,9 @@ let FillContent = (function () {
         tomorrowDate.html((json.list[8].dt_txt).split(' ')[0]);
 
         let tomorrowDay = $('#day');
-        let days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-        let d = new Date(json.list[8].dt_txt);
-        let dayName = days[d.getDay()];
-        tomorrowDay.html(dayName);
+        let date = new Date(json.list[8].dt_txt);
+        let dateName = getDayOfTheWeek(date);
+        tomorrowDay.html(dateName);
 
         let weather = (json.list[8].weather[0].main);
         imageController.SetWeatherIcon(weather);
@@ -149,10 +157,10 @@ let FillContent = (function () {
         for (let i = 0; i < 40; i += 8) {
 
             let day = $(`#day-${i}`);
-            let d = new Date(json.list[i].dt_txt);
-            let days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-            let dayName = days[d.getDay()];
-            $(day).html(dayName);
+            let date = new Date(json.list[i].dt_txt);
+            let dateName = getDayOfTheWeek(date);
+            
+            $(day).html(dateName);
 
             let date5days = $(`#date${i}`);
             $(`#date${i}`).html((json.list[i].dt_txt).split(' ')[0]);
