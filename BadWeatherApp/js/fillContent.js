@@ -5,7 +5,7 @@ let FillContent = (function() {
         for (let i = 0; i < 8; i += 1) {
 
             let currentHour = $(`#hour-${i}`);
-            currentHour.html(json.list[i].dt_txt.split(' ')[1].substr(0, 5)+' GMT');
+            currentHour.html(json.list[i].dt_txt.split(' ')[1].substr(0, 5) + ' GMT');
 
             let currentDate = $(`#date-${i}`);
             currentDate.html(json.list[i].dt_txt.split(' ')[0]);
@@ -29,7 +29,11 @@ let FillContent = (function() {
             }
 
             let currentTemp = $(`#temp-${i}`);
-            currentTemp.html((json.list[i].main.temp - 273.15).toFixed(0) + '°');
+            let t = (json.list[i].main.temp - 273.15).toFixed(0) + '°';
+            if (t === '-0°') {
+                t = '0°';
+            }
+            currentTemp.html(t);
 
             let currentHumidity = $(`#humidity-${i}`);
             currentHumidity.html(json.list[i].main.humidity + ' %');
@@ -94,13 +98,21 @@ let FillContent = (function() {
         }
 
         let minimumTemp = $('#min-temp');
-        minimumTemp.html(minTemp.toFixed(0) + '°');
+        let n = minTemp.toFixed(0) + '°';
+        if (n === '-0°') {
+            n = '0°';
+        }
+        minimumTemp.html(n);
 
         let minimumHour = $('#min-temp-hour');
         minimumHour.html(' at ' + minTempHour);
 
         let maximumTemp = $('#max-temp');
-        maximumTemp.html(maxTemp.toFixed(0) + '°');
+        let x = maxTemp.toFixed(0) + '°';
+        if (x === '-0°') {
+            x = '0°';
+        }
+        maximumTemp.html(x);
 
         let maximumHour = $('#max-temp-hour');
         maximumHour.html(' at ' + maxTempHour);
@@ -115,7 +127,11 @@ let FillContent = (function() {
         windDirectionWind.html(windDir);
 
         let averageTemperature = $('#av-degrees');
-        averageTemperature.html(averageTemp + '°');
+        let a = averageTemp + '°';
+        if (a === '-0°') {
+            a = '0°';
+        }
+        averageTemperature.html(a);
 
         let tomorrowDate = $('#date');
         tomorrowDate.html((json.list[8].dt_txt).split(' ')[0]);
@@ -152,7 +168,7 @@ let FillContent = (function() {
         };
 
         for (let i = 0; i < 40; i += 8) {
-
+            
             let day = $(`#day-${i}`);
             let d = new Date(json.list[i].dt_txt);
             let days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
@@ -172,7 +188,11 @@ let FillContent = (function() {
                     minT5d = allTemps[k];
                 }
             }
-            $(minTemp5Days).html((minT5d.toFixed(0) - 273.15).toFixed(0) + '°');
+            let min = (minT5d.toFixed(0) - 273.15).toFixed(0) + '°';
+            if (min === '-0°') {
+                min = '0°';
+            }
+            $(minTemp5Days).html(min);
 
             let maxTemp5Days = $(`#tempMax${i}`);
             let maxT5d = -1000;
@@ -181,7 +201,11 @@ let FillContent = (function() {
                     maxT5d = allTemps[k];
                 }
             }
-            $(maxTemp5Days).html((maxT5d.toFixed(0) - 273.15).toFixed(0) + '°');
+            let max = (maxT5d.toFixed(0) - 273.15).toFixed(0) + '°';
+            if (max === '-0°') {
+                max = '0°';
+            }
+            $(maxTemp5Days).html(max);
 
             let weather5days = (json.list[i].weather[0].main);
             if (weather5days === 'Clouds') {
