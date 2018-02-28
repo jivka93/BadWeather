@@ -1,6 +1,6 @@
 const mainController = (function () {
 
-    let onButtonClick = function (cityId) {
+    const onButtonClick = function (cityId) {
         const baseUrl = apiConfig.baseUrl;
         const key = apiConfig.key;
         const id = cityId;
@@ -9,7 +9,7 @@ const mainController = (function () {
 
     };
 
-    let onDataRetrieved = function (json) {
+    const onDataRetrieved = function (json) {
         let cityName = $('#city-name');
         cityName.html(json.city.name);
         let countryName = $('#country-name');
@@ -23,7 +23,7 @@ const mainController = (function () {
 
     };
 
-    let onDropdownClick = function () {
+    const onDropdownClick = function () {
         let cityId = $(this).attr('id');
         clearContent.clear();
         switchActive.ToToday();

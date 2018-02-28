@@ -1,6 +1,6 @@
-let CreateContent = (function () {
+const CreateContent = (function () {
 
-    let createCurrentTab = (function () {
+    const createCurrentTab = (function () {
         for (let i = 0; i < 8; i += 1) {
 
             let row = $(`
@@ -35,7 +35,7 @@ let CreateContent = (function () {
         };
     });
 
-    let createTomorrowTab = (function () {
+    const createTomorrowTab = (function () {
 
         let row = $(`
     <div class="content-tomorrow clearfix">    
@@ -74,7 +74,7 @@ let CreateContent = (function () {
 
     });
 
-    let createFiveDaysTab = (function () {
+    const createFiveDaysTab = (function () {
 
         for (let i = 0; i < 40; i += 8) {
             let col = $(`

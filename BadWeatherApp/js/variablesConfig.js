@@ -1,7 +1,7 @@
-var variablesConfig = (function () {
+const variablesConfig = (function () {
 
-    let minTemp = 1000; //Used for comparing values for minTemp
-    let maxTemp = -1000; //Used for comparing values for maxTemp
+    const minTemp = 1000; //Used for comparing values for minTemp
+    const maxTemp = -1000; //Used for comparing values for maxTemp
 
     const firstHourOfTodayIndex = 0; /// Represents the forecast for the first hour from the JSON file
     const lastHourOfTodayIndex = 8;/// Represents the forecast for the last hour of the current 24 hour window from the JSON file

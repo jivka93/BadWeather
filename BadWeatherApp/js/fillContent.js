@@ -1,9 +1,9 @@
-let FillContent = (function () {
+const FillContent = (function () {
 
-    let convertToCelsius = function (temp) {
+    const convertToCelsius = function (temp) {
         return temp - 273.15;
     };
-    let getWindDirectionString = function (windDirection) {
+    const getWindDirectionString = function (windDirection) {
         let windDirectionString = '';
         if (337 < windDirection || windDirection <= 22) {
             windDirectionString = 'N';
@@ -24,20 +24,20 @@ let FillContent = (function () {
         }
         return windDirectionString;
     };
-    let getDayOfTheWeek = function (date) {
+    const getDayOfTheWeek = function (date) {
         let days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
         let dayName = days[date.getDay()];
         return dayName;
     };
 
-    let parseToValidNumber = function(t) {
+    const parseToValidNumber = function(t) {
         if (t === '-0°') {
             t = '0°';
         }
         return t;
     };
 
-    let fillCurrentTab = (function (json) {
+    const fillCurrentTab = (function (json) {
         
         for (let i = variablesConfig.firstHourOfTodayIndex; i < variablesConfig.lastHourOfTodayIndex; i += 1) {
 
@@ -67,7 +67,7 @@ let FillContent = (function () {
 
     });
 
-    let fillTomorrowTab = (function (json) {
+    const fillTomorrowTab = (function (json) {
         let minTemp = variablesConfig.minTemp;
         let maxTemp = variablesConfig.maxTemp;
         let minTempHour = '';
@@ -150,7 +150,7 @@ let FillContent = (function () {
         tomorrowWeatherText.html(json.list[variablesConfig.firstHourOfTomorrowIndex].weather[0].description);
     });
 
-    let fillFiveDaysTab = (function (json) {
+    const fillFiveDaysTab = (function (json) {
         let allTemps = [];
         for (let i = variablesConfig.firstHourOfTodayIndex; i < variablesConfig.lastHourOfFifthDayIndex; i += 1) {
             allTemps.push(json.list[i].main.temp);

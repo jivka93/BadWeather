@@ -1,6 +1,6 @@
-let switchActive = (function () {
+const switchActive = (function () {
 
-    let switchActive = (function () {
+    const ToToday = (function () {
         $('.tab-active').removeClass('tab-active').addClass('tab-inactive');
         $('#now-tab').addClass('tab-active').removeClass('tab-inactive');
         $('.active-content').removeClass('active-content').addClass('inactive-content');
@@ -10,6 +10,6 @@ let switchActive = (function () {
     });
 
     return {
-        ToToday: switchActive
+        ToToday: ToToday
     };
 })();

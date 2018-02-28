@@ -1,6 +1,6 @@
-let imageController = (function () {
+const imageController = (function () {
 
-    let createDeafultBackground = (function (json) {
+    const createDeafultBackground = (function (json) {
 
         let hour = parseInt((json.list[0].dt_txt.split(' ')[1].substr(0, 5)).split(':')[0]);
         let weather = (json.list[0].weather[0].main);
@@ -44,7 +44,7 @@ let imageController = (function () {
         };
     });
 
-    let setWeatherIcon = function (weather, i) {
+    const setWeatherIcon = function (weather, i) {
 
         if (weather) {
             $(`#icon-${i}`).attr('src', `images/${weather.toLowerCase()}.png`);

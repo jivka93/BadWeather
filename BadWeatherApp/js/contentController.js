@@ -1,12 +1,12 @@
-let contentController = (function () {
+const contentController = (function () {
 
-    let changeContent = (function () {
+    const changeContent = (function () {
         $('.tab-active').removeClass('tab-active').addClass('tab-inactive');
         $(this).addClass('tab-active').removeClass('tab-inactive');
 
         let data = JSON.parse(sessionStorage.getItem('data'));
 
-        let RemoveActiveContent = (function () {
+        const RemoveActiveContent = (function () {
             $('.active-content').removeClass('active-content').addClass('inactive-content');
         })();
 
