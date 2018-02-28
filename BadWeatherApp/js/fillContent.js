@@ -39,7 +39,7 @@ const FillContent = (function () {
 
     const fillCurrentTab = (function (json) {
         
-        for (let i = variablesConfig.firstHourOfTodayIndex; i < variablesConfig.lastHourOfTodayIndex; i += 1) {
+        for (let i = constantsConfig.firstHourOfTodayIndex; i < constantsConfig.lastHourOfTodayIndex; i += 1) {
 
             let currentHour = $(`#hour-${i}`);
             currentHour.html(json.list[i].dt_txt.split(' ')[1].substr(0, 5) + ' GMT');
@@ -68,8 +68,8 @@ const FillContent = (function () {
     });
 
     const fillTomorrowTab = (function (json) {
-        let minTemp = variablesConfig.minTemp;
-        let maxTemp = variablesConfig.maxTemp;
+        let minTemp = constantsConfig.minTemp;
+        let maxTemp = constantsConfig.maxTemp;
         let minTempHour = '';
         let maxTempHour = '';
 
@@ -78,7 +78,7 @@ const FillContent = (function () {
         let sumWindSpeed = 0;
         let sumWindDirection = 0;
 
-        for (let i = variablesConfig.firstHourOfTomorrowIndex; i <= variablesConfig.lastHourOfTomorrowIndex; i += 1) {
+        for (let i = constantsConfig.firstHourOfTomorrowIndex; i <= constantsConfig.lastHourOfTomorrowIndex; i += 1) {
             let currentMin = (parseInt(json.list[i].main.temp_min)).toFixed(0);
         
             if (currentMin < minTemp) {
@@ -97,10 +97,10 @@ const FillContent = (function () {
         }
 
 
-        let averageTemp = convertToCelsius(sumTemp / variablesConfig.windDirections).toFixed(0);
-        let humidity = (sumHummidity / variablesConfig.windDirections).toFixed(0);
-        let windSpeed = (sumWindSpeed / variablesConfig.windDirections).toFixed(0);
-        let windDirection = ((sumWindDirection / variablesConfig.windDirections) % 360).toFixed(0);
+        let averageTemp = convertToCelsius(sumTemp / constantsConfig.windDirections).toFixed(0);
+        let humidity = (sumHummidity / constantsConfig.windDirections).toFixed(0);
+        let windSpeed = (sumWindSpeed / constantsConfig.windDirections).toFixed(0);
+        let windDirection = ((sumWindDirection / constantsConfig.windDirections) % 360).toFixed(0);
         let windDir = getWindDirectionString(windDirection);
 
         minTemp = convertToCelsius(minTemp);
@@ -136,27 +136,27 @@ const FillContent = (function () {
         averageTemperature.html(averageTempToConvert);
 
         let tomorrowDate = $('#date');
-        tomorrowDate.html((json.list[variablesConfig.firstHourOfTomorrowIndex].dt_txt).split(' ')[0]);
+        tomorrowDate.html((json.list[constantsConfig.firstHourOfTomorrowIndex].dt_txt).split(' ')[0]);
 
         let tomorrowDay = $('#day');
-        let date = new Date(json.list[variablesConfig.firstHourOfTomorrowIndex].dt_txt);
+        let date = new Date(json.list[constantsConfig.firstHourOfTomorrowIndex].dt_txt);
         let dateName = getDayOfTheWeek(date);
         tomorrowDay.html(dateName);
 
-        let weather = (json.list[variablesConfig.firstHourOfTomorrowIndex].weather[0].main);
+        let weather = (json.list[constantsConfig.firstHourOfTomorrowIndex].weather[0].main);
         imageController.SetWeatherIcon(weather);
 
         let tomorrowWeatherText = $('#weather-text');
-        tomorrowWeatherText.html(json.list[variablesConfig.firstHourOfTomorrowIndex].weather[0].description);
+        tomorrowWeatherText.html(json.list[constantsConfig.firstHourOfTomorrowIndex].weather[0].description);
     });
 
     const fillFiveDaysTab = (function (json) {
         let allTemps = [];
-        for (let i = variablesConfig.firstHourOfTodayIndex; i < variablesConfig.lastHourOfFifthDayIndex; i += 1) {
+        for (let i = constantsConfig.firstHourOfTodayIndex; i < constantsConfig.lastHourOfFifthDayIndex; i += 1) {
             allTemps.push(json.list[i].main.temp);
         };
 
-        for (let i = variablesConfig.firstHourOfTodayIndex; i < variablesConfig.lastHourOfFifthDayIndex; i += 8) {
+        for (let i = constantsConfig.firstHourOfTodayIndex; i < constantsConfig.lastHourOfFifthDayIndex; i += 8) {
 
             let day = $(`#day-${i}`);
             let date = new Date(json.list[i].dt_txt);
@@ -171,8 +171,8 @@ const FillContent = (function () {
             $(title5days).html(json.list[i].weather[0].description);
 
             let minTemp5Days = $(`#tempMin${i}`);
-            let minTemp = variablesConfig.minTemp;
-            for (let k = i; k < i + variablesConfig.maxIndexesForADay; k += 1) {
+            let minTemp = constantsConfig.minTemp;
+            for (let k = i; k < i + constantsConfig.maxIndexesForADay; k += 1) {
                 if (minTemp > allTemps[k]) {
                     minTemp = allTemps[k];
                 }
@@ -182,8 +182,8 @@ const FillContent = (function () {
             $(minTemp5Days).html(min);
 
             let maxTemp5Days = $(`#tempMax${i}`);
-            let maxTemp = variablesConfig.maxTemp;
-            for (let k = i; k < i + variablesConfig.maxIndexesForADay; k += 1) {
+            let maxTemp = constantsConfig.maxTemp;
+            for (let k = i; k < i + constantsConfig.maxIndexesForADay; k += 1) {
                 if (maxTemp < allTemps[k]) {
                     maxTemp = allTemps[k];
                 }

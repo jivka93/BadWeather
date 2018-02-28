@@ -1,7 +1,7 @@
 const CreateContent = (function () {
 
     const createCurrentTab = (function () {
-        for (let i = 0; i < 8; i += 1) {
+        for (let i = constantsConfig.firstHourOfTodayIndex; i < constantsConfig.lastHourOfTodayIndex; i += 1) {
 
             let row = $(`
         <table id="current-weather-table">    
@@ -76,7 +76,7 @@ const CreateContent = (function () {
 
     const createFiveDaysTab = (function () {
 
-        for (let i = 0; i < 40; i += 8) {
+        for (let i = constantsConfig.firstHourOfTodayIndex; i < constantsConfig.lastHourOfFifthDayIndex; i += 8) {
             let col = $(`
         
     <div id="day${i}" class="tab-five-days listdays">

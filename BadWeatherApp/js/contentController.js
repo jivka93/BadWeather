@@ -2,9 +2,9 @@ const contentController = (function () {
 
     const changeContent = (function () {
 
-        let old = $('.tab-active');
+        let currentTab = $('.tab-active');
 
-        if (!old.is($(this))) {
+        if (!currentTab.is($(this))) {
 
             $('.tab-active').removeClass('tab-active').addClass('tab-inactive');
             $(this).addClass('tab-active').removeClass('tab-inactive');

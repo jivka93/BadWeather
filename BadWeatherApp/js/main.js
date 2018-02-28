@@ -14,19 +14,18 @@ const mainController = (function () {
         let countryName = $('#country-name');
         countryName.html(json.city.country);
 
+        variablesConfig.currentCityID = (json.city.id).toString();
         sessionStorage.setItem('data', JSON.stringify(json));
-
+        
         CreateContent.CurrentTab();
         FillContent.CurrentTab(json);
         imageController.SetBackground(json);
     };
     
     const onDropdownClick = function () {
-        let currentId = (JSON.parse(sessionStorage.getItem('data')).city.id).toString();
         let cityId = $(this).attr('id');
 
-        if (currentId !== cityId) {
-
+        if (variablesConfig.currentCityID !== cityId) {
             clearContent.clear();
             switchActive.ToToday();
             onButtonClick(cityId);
