@@ -5,9 +5,7 @@ const mainController = (function () {
         const key = apiConfig.key;
         const id = cityId;
         const url = baseUrl + id + key;
-        $.get(url, onDataRetrieved);
-        
-
+        $.get(url, onDataRetrieved);      
     };
 
     const onDataRetrieved = function (json) {
@@ -21,14 +19,18 @@ const mainController = (function () {
         CreateContent.CurrentTab();
         FillContent.CurrentTab(json);
         imageController.SetBackground(json);
-
     };
     
     const onDropdownClick = function () {
+        let currentId = (JSON.parse(sessionStorage.getItem('data')).city.id).toString();
         let cityId = $(this).attr('id');
-        clearContent.clear();
-        switchActive.ToToday();
-        onButtonClick(cityId);
+
+        if (currentId !== cityId) {
+
+            clearContent.clear();
+            switchActive.ToToday();
+            onButtonClick(cityId);
+        }       
     };
 
     return {

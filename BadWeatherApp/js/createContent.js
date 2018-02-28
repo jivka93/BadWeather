@@ -91,8 +91,8 @@ const CreateContent = (function () {
             <div class="temp-max" id="tempMax${i}"></div>
         </div>
         <div class="wind" id ="wind${i}"></div>
-    </div> 
-`);
+    </div> `);
+    
             $('#content-five-days').append(col);
         };
 
