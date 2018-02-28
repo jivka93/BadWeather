@@ -14,7 +14,7 @@ const imageController = (function () {
             if (weather === 'Snow') {
                 $('#body').css('background-image', `url(images/morning/${weather}.gif`);
             } else {
-                $('#body').css('background-image', `url(images/morning/${weather}jpg`);
+                $('#body').css('background-image', `url(images/morning/${weather}.jpg`);
             }
 
         } else if (dayHours) {
@@ -38,7 +38,7 @@ const imageController = (function () {
 
         };
         if (city === 'Yakutsk') {
-            $('#body').css('background-image', 'url(images/yakutsk.gif');
+            $('#body').css('background-image', `url(images/${city.toLowerCase()}.gif`);
             $('.main-content').hide();
             $('.main-content').fadeIn(2000);
         };

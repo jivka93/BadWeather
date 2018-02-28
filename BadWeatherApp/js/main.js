@@ -6,6 +6,7 @@ const mainController = (function () {
         const id = cityId;
         const url = baseUrl + id + key;
         $.get(url, onDataRetrieved);
+        
 
     };
 
@@ -22,12 +23,12 @@ const mainController = (function () {
         imageController.SetBackground(json);
 
     };
-
+    
     const onDropdownClick = function () {
         let cityId = $(this).attr('id');
         clearContent.clear();
         switchActive.ToToday();
-        mainController.onButtonClick(cityId);
+        onButtonClick(cityId);
     };
 
     return {
