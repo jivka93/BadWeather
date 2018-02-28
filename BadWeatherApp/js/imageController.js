@@ -9,61 +9,33 @@ let imageController = (function () {
         let eveningHours = hour > 18 && hour <= 20;
         let nightHours = hour <= 6 || hour > 20;
         let city = json.city.name;
-        
+
         if (morningHours) {
             if (weather === 'Snow') {
-                $('#body').css('background-image', 'url(images/morning/Snow.gif');
-            };
-            if (weather === 'Rain') {
-                $('#body').css('background-image', 'url(images/morning/Rain.jpg');
-            };
-            if (weather === 'Cloud') {
-                $('#body').css('background-image', 'url(images/morning/Cloud.jpg');
-            };
-            if (weather === 'Clear') {
-                $('#body').css('background-image', 'url(images/morning/Clear.jpg');
-            };
+                $('#body').css('background-image', `url(images/morning/${weather}.gif`);
+            } else {
+                $('#body').css('background-image', `url(images/morning/${weather}jpg`);
+            }
+
         } else if (dayHours) {
             if (weather === 'Snow') {
-                $('#body').css('background-image', 'url(images/day/Snow.gif');
-            };
-            if (weather === 'Rain') {
-                $('#body').css('background-image', 'url(images/day/Rain.jpg');
-            };
-            if (weather === 'Cloud') {
-                $('#body').css('background-image', 'url(images/day/Cloud.jpg');
-            };
-            if (weather === 'Clear') {
-                $('#body').css('background-image', 'url(images/day/Clear.jpg');
-            };
+                $('#body').css('background-image', `url(images/day/${weather}.gif`);
+            } else {
+                $('#body').css('background-image', `url(images/day/${weather}.jpg`);
+            }
         } else if (eveningHours) {
             if (weather === 'Snow') {
-                $('#body').css('background-image', 'url(images/evening/Snow.gif');
-            };
-            if (weather === 'Rain') {
-                $('#body').css('background-image', 'url(images/evening/Rain.jpg');
-            };
-            if (weather === 'Cloud') {
-                $('#body').css('background-image', 'url(images/evening/Cloud.jpg');
-            };
-            if (weather === 'Clear') {
-                $('#body').css('background-image', 'url(images/evening/Clear.jpg');
-            };
+                $('#body').css('background-image', `url(images/evening/${weather}.gif`);
+            } else {
+                $('#body').css('background-image', `url(images/evening/${weather}.jpg`);
+            }
         } else if (nightHours) {
             if (weather === 'Snow') {
-                $('#body').css('background-image', 'url(images/night/Snow.gif');
-            };
-            if (weather === 'Rain') {
-                $('#body').css('background-image', 'url(images/night/Rain.jpg');
-            };
-            if (weather === 'Cloud') {
-                $('#body').css('background-image', 'url(images/night/Cloud.jpg');
-            };
-            if (weather === 'Clear') {
-                $('#body').css('background-image', 'url(images/night/Clear.jpg');
-            };
+                $('#body').css('background-image', `url(images/night/${weather}.gif`);
+             } else {
+                $('#body').css('background-image', `url(images/night/${weather}.jpg`);
+            }
 
-            
         };
         if (city === 'Yakutsk') {
             $('#body').css('background-image', 'url(images/yakutsk.gif');
@@ -74,7 +46,6 @@ let imageController = (function () {
 
     let setWeatherIcon = function (weather, i) {
 
-        debugger;
         if (weather) {
             $(`#icon-${i}`).attr('src', `images/${weather.toLowerCase()}.png`);
             $(`#weather-icon${i}`).attr('src', `images/${weather.toLowerCase()}.png`);
