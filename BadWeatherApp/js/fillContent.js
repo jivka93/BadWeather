@@ -1,10 +1,10 @@
 let FillContent = (function () {
-    
-    let convertToCelsius =  function(temp){
+
+    let convertToCelsius = function (temp) {
         return temp - 273.15;
     }
-    let getWindDirectionString = function(windDirection){
-        let windDirectionString ='';
+    let getWindDirectionString = function (windDirection) {
+        let windDirectionString = '';
         if (337 < windDirection || windDirection <= 22) {
             windDirectionString = 'N';
         } else if (22 < windDirection && windDirection <= 67) {
@@ -24,7 +24,7 @@ let FillContent = (function () {
         }
         return windDirectionString;
     }
-    let getDayOfTheWeek = function(date){
+    let getDayOfTheWeek = function (date) {
         let days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
         let dayName = days[date.getDay()];
         return dayName;
@@ -73,6 +73,7 @@ let FillContent = (function () {
 
         for (let i = 9; i <= 16; i += 1) {
             let currentMin = (parseInt(json.list[i].main.temp_min)).toFixed(0);
+        
             if (currentMin < minTemp) {
                 minTemp = currentMin;
                 minTempHour = json.list[i].dt_txt.split(' ')[1].substr(0, 5);
@@ -88,15 +89,15 @@ let FillContent = (function () {
             sumWindDirection += parseInt(json.list[i].wind.deg);
         }
 
-        minTemp -= 273.15;
-        maxTemp -= 273.15;
+
         let averageTemp = convertToCelsius(sumTemp / 8).toFixed(0);
         let humidity = (sumHummidity / 8).toFixed(0);
         let windSpeed = (sumWindSpeed / 8).toFixed(0);
         let windDirection = ((sumWindDirection / 8) % 360).toFixed(0);
         let windDir = getWindDirectionString(windDirection);
-        
 
+        minTemp = convertToCelsius(minTemp);
+        maxTemp = convertToCelsius(maxTemp);
         let minimumTemp = $('#min-temp');
         let n = minTemp.toFixed(0) + '°';
         if (n === '-0°') {
@@ -159,7 +160,7 @@ let FillContent = (function () {
             let day = $(`#day-${i}`);
             let date = new Date(json.list[i].dt_txt);
             let dateName = getDayOfTheWeek(date);
-            
+
             $(day).html(dateName);
 
             let date5days = $(`#date${i}`);

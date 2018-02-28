@@ -1,4 +1,4 @@
-let cities = [{
+const cities = [{
         value: 'Vaduz',
         data: '3042030'
     },
