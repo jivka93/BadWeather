@@ -8,6 +8,7 @@ let imageController = (function () {
         let dayHours = hour > 8 && hour <= 18;
         let eveningHours = hour > 18 && hour <= 20;
         let nightHours = hour <= 6 || hour > 20;
+        let city = json.city.name;
         
         if (morningHours) {
             if (weather === 'Snow') {
@@ -61,6 +62,13 @@ let imageController = (function () {
             if (weather === 'Clear') {
                 $('#body').css('background-image', 'url(images/clear/night-sky5.jpg');
             };
+
+            
+        };
+        if (city === 'Yakutsk') {
+            $('#body').css('background-image', 'url(images/yakutsk.gif');
+            $('.main-content').hide();
+            $('.main-content').fadeIn(2000);
         };
     });
 
@@ -69,16 +77,8 @@ let imageController = (function () {
         ////Changes Icons for tab "Now"
 
         
-        if (weather === 'Clouds') {
-            $(`#icon-${i}`).attr('src', 'images/clouds.png');
-        } else if (weather === 'Snow') {
-            $(`#icon-${i}`).attr('src', 'images/snow.png');
-        } else if (weather === 'Rain') {
-            $(`#icon-${i}`).attr('src', 'images/rain.png');
-        } else if (weather === 'Clear') {
-            $(`#icon-${i}`).attr('src', 'images/clear.png');
-        } else if (weather === 'Storm') {
-            $(`#icon-${i}`).attr('src', 'images/storm.png');
+        if (weather) {
+            $(`#icon-${i}`).attr('src', `images/${weather.toLowerCase()}.png`);
         } else {
             $(`#icon-${i}`).attr('src', 'images/other.png');
         };
@@ -118,4 +118,4 @@ let imageController = (function () {
         SetBackground: createDeafultBackground,
         SetWeatherIcon: setWeatherIcon
     };
-}());
+})();

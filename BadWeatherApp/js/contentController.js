@@ -8,33 +8,37 @@ let contentController = (function () {
 
         let RemoveActiveContent = (function () {
             $('.active-content').removeClass('active-content').addClass('inactive-content');
-        }());
+        })();
 
         if ($(this).is('#now-tab')) {
             clearContent.clear();
-            RemoveActiveContent;
             $('#content-current').removeClass('inactive-content').addClass('active-content');
+            $('#content-current').hide();
             CreateContent.CurrentTab();
             FillContent.CurrentTab(data);
+            $('#content-current').fadeIn(1000);
+            
         };
         if ($(this).is('#tomorrow-tab')) {
             clearContent.clear();
-            RemoveActiveContent;
             $('#content-tomorrow').removeClass('inactive-content').addClass('active-content');
+            $('#content-tomorrow').hide();
             CreateContent.TomorrowTab();
             FillContent.TomorrowTab(data);
+            $('#content-tomorrow').fadeIn(1000);
         };
         if ($(this).is('#five-days-tab')) {
             clearContent.clear();
-            RemoveActiveContent;
             $('#content-five-days').removeClass('inactive-content').addClass('active-content');
+            $('#content-five-days').hide();
             CreateContent.FiveDaysTab();
             FillContent.FiveDaysTab(data);
+            $('#content-five-days').fadeIn(1000);
         };
         
     });
     return {
         ChangeContent: changeContent
     };
-});
+})();
 
