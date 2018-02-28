@@ -2,7 +2,8 @@ let FillContent = (function () {
 
     let convertToCelsius = function (temp) {
         return temp - 273.15;
-    }
+    };
+
     let getWindDirectionString = function (windDirection) {
         let windDirectionString = '';
         if (337 < windDirection || windDirection <= 22) {
@@ -23,12 +24,12 @@ let FillContent = (function () {
             windDirectionString = 'NW';
         }
         return windDirectionString;
-    }
+    };
     let getDayOfTheWeek = function (date) {
         let days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
         let dayName = days[date.getDay()];
         return dayName;
-    }
+    };
     let fillCurrentTab = (function (json) {
         for (let i = 0; i < 8; i += 1) {
 
@@ -203,6 +204,7 @@ let FillContent = (function () {
         }
 
     });
+
     return {
         CurrentTab: fillCurrentTab,
         TomorrowTab: fillTomorrowTab,
