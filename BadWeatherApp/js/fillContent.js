@@ -200,6 +200,7 @@ let FillContent = (function () {
         }
 
     });
+
     return {
         CurrentTab: fillCurrentTab,
         TomorrowTab: fillTomorrowTab,
