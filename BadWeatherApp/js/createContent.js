@@ -1,9 +1,9 @@
-var CreateContent = (function () {
+let CreateContent = (function () {
 
-    var createCurrentTab = (function () {
-        for (var i = 0; i < 8; i += 1) {
+    let createCurrentTab = (function () {
+        for (let i = 0; i < 8; i += 1) {
 
-            var row = $(`
+            let row = $(`
         <table id="current-weather-table">    
             <tr class="content-row" id="row${i}">
             <td class="time td">
@@ -35,9 +35,9 @@ var CreateContent = (function () {
         };
     });
 
-    var createTomorrowTab = (function () {
+    let createTomorrowTab = (function () {
 
-        var row = $(`
+        let row = $(`
     <div class="content-tomorrow clearfix">    
         <div id="left" class="column">
             <p id="day"></p>
@@ -74,10 +74,10 @@ var CreateContent = (function () {
 
     });
 
-    var createFiveDaysTab = (function () {
+    let createFiveDaysTab = (function () {
 
-        for (var i = 0; i < 40; i += 8) {
-            var col = $(`
+        for (let i = 0; i < 40; i += 8) {
+            let col = $(`
         
     <div id="day${i}" class="tab-five-days listdays">
         <div class="day" id="day-${i}"></div>

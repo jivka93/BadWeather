@@ -1,18 +1,18 @@
 var mainController = (function () {
 
-    var onButtonClick = function (cityId) {
-        var baseUrl = config.baseUrl;
-        var key = config.key;
-        var id = cityId;
-        var url = baseUrl + id + key;
+    let onButtonClick = function (cityId) {
+        const baseUrl = config.baseUrl;
+        const key = config.key;
+        const id = cityId;
+        const url = baseUrl + id + key;
         $.get(url, onDataRetrieved);
 
     };
 
-    var onDataRetrieved = function (json) {
-        var cityName = $('#city-name');
+    let onDataRetrieved = function (json) {
+        let cityName = $('#city-name');
         cityName.html(json.city.name);
-        var countryName = $('#country-name');
+        let countryName = $('#country-name');
         countryName.html(json.city.country);
 
         sessionStorage.setItem('data', JSON.stringify(json));
@@ -23,7 +23,7 @@ var mainController = (function () {
 
     };
 
-    var onDropdownClick = function () {
+    let onDropdownClick = function () {
         let cityId = $(this).attr('id');
         clearContent.clear();
         switchActive.ToToday();

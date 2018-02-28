@@ -1,4 +1,4 @@
-var cities = [{
+let cities = [{
         value: 'Vaduz',
         data: '3042030'
     },

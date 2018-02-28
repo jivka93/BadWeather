@@ -1,10 +1,9 @@
-var BackgroundController = (function () {
+let BackgroundController = (function () {
 
-    var createDeafultBackground = (function (json) {
-     
-        //  TODO : Extract css to different files for diff cases and load them with JS 
-        var hour = parseInt((json.list[0].dt_txt.split(' ')[1].substr(0, 5)).split(':')[0]);
-        var weather = (json.list[0].weather[0].main);
+    let createDeafultBackground = (function (json) {
+      
+        let hour = parseInt((json.list[0].dt_txt.split(' ')[1].substr(0, 5)).split(':')[0]);
+        let weather = (json.list[0].weather[0].main);
 
         if (hour > 6 && hour <= 8) {
             if (weather === 'Snow') {

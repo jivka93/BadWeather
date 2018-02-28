@@ -6,7 +6,7 @@ $(function () {
     lookup: cities,
     onSelect: function (suggestion) {
       mainController.onButtonClick(suggestion.data);
-      var data = JSON.parse(sessionStorage.getItem('data'));
+      let data = JSON.parse(sessionStorage.getItem('data'));
       CreateContent.CurrentTab();
       FillContent.CurrentTab(data);
       switchActive.ToToday();

@@ -1,19 +1,19 @@
-var FillContent = (function() {
+let FillContent = (function() {
 
 
-    var fillCurrentTab = (function(json) {
-        for (var i = 0; i < 8; i += 1) {
+    let fillCurrentTab = (function(json) {
+        for (let i = 0; i < 8; i += 1) {
 
-            var currentHour = $(`#hour-${i}`);
+            let currentHour = $(`#hour-${i}`);
             currentHour.html(json.list[i].dt_txt.split(' ')[1].substr(0, 5)+' GMT');
 
-            var currentDate = $(`#date-${i}`);
+            let currentDate = $(`#date-${i}`);
             currentDate.html(json.list[i].dt_txt.split(' ')[0]);
 
-            var currentWeather = $(`#weather-${i}`);
+            let currentWeather = $(`#weather-${i}`);
             currentWeather.html(json.list[i].weather[0].main);
 
-            var weather = (json.list[i].weather[0].main);
+            let weather = (json.list[i].weather[0].main);
             if (weather === 'Clouds') {
                 $(`#icon-${i}`).attr('src', 'images/clouds.png');
             } else if (weather === 'Snow') {
@@ -28,36 +28,36 @@ var FillContent = (function() {
                 $(`#icon-${i}`).attr('src', 'images/other.png');
             }
 
-            var currentTemp = $(`#temp-${i}`);
+            let currentTemp = $(`#temp-${i}`);
             currentTemp.html((json.list[i].main.temp - 273.15).toFixed(0) + '°');
 
-            var currentHumidity = $(`#humidity-${i}`);
+            let currentHumidity = $(`#humidity-${i}`);
             currentHumidity.html(json.list[i].main.humidity + ' %');
 
-            var currentWind = $(`#wind-${i}`);
+            let currentWind = $(`#wind-${i}`);
             currentWind.html(json.list[i].wind.speed.toFixed(0) + ' m/s');
         }
 
     });
 
-    var  fillTomorrowTab = (function(json) {
-        var minTemp = 1000;
-        var maxTemp = -1000;
-        var minTempHour = '';
-        var maxTempHour = '';
+    let  fillTomorrowTab = (function(json) {
+        let minTemp = 1000;
+        let maxTemp = -1000;
+        let minTempHour = '';
+        let maxTempHour = '';
 
-        var sumTemp = 0;
-        var sumHummidity = 0;
-        var sumWindSpeed = 0;
-        var sumWindDirection = 0;
+        let sumTemp = 0;
+        let sumHummidity = 0;
+        let sumWindSpeed = 0;
+        let sumWindDirection = 0;
 
-        for (var i = 9; i <= 16; i += 1) {
-            var currentMin = (parseInt(json.list[i].main.temp_min)).toFixed(0);
+        for (let i = 9; i <= 16; i += 1) {
+            let currentMin = (parseInt(json.list[i].main.temp_min)).toFixed(0);
             if (currentMin < minTemp) {
                 minTemp = currentMin;
                 minTempHour = json.list[i].dt_txt.split(' ')[1].substr(0, 5);
             }
-            var currentMax = (parseInt(json.list[i].main.temp_max)).toFixed(0);
+            let currentMax = (parseInt(json.list[i].main.temp_max)).toFixed(0);
             if (currentMax > maxTemp) {
                 maxTemp = currentMax;
                 maxTempHour = json.list[i].dt_txt.split(' ')[1].substr(0, 5);
@@ -70,11 +70,11 @@ var FillContent = (function() {
 
         minTemp -= 273.15;
         maxTemp -= 273.15;
-        var averageTemp = (sumTemp / 8 - 273.15).toFixed(0);
-        var humidity = (sumHummidity / 8).toFixed(0);
-        var windSpeed = (sumWindSpeed / 8).toFixed(0);
-        var windDirection = ((sumWindDirection / 8) % 360).toFixed(0);
-        var windDir = '';
+        let averageTemp = (sumTemp / 8 - 273.15).toFixed(0);
+        let humidity = (sumHummidity / 8).toFixed(0);
+        let windSpeed = (sumWindSpeed / 8).toFixed(0);
+        let windDirection = ((sumWindDirection / 8) % 360).toFixed(0);
+        let windDir = '';
         if (337 < windDirection || windDirection <= 22) {
             windDir = 'N';
         } else if (22 < windDirection && windDirection <= 67) {
@@ -93,40 +93,40 @@ var FillContent = (function() {
             windDir = 'NW';
         }
 
-        var minimumTemp = $('#min-temp');
+        let minimumTemp = $('#min-temp');
         minimumTemp.html(minTemp.toFixed(0) + '°');
 
-        var minimumHour = $('#min-temp-hour');
+        let minimumHour = $('#min-temp-hour');
         minimumHour.html(' at ' + minTempHour);
 
-        var maximumTemp = $('#max-temp');
+        let maximumTemp = $('#max-temp');
         maximumTemp.html(maxTemp.toFixed(0) + '°');
 
-        var maximumHour = $('#max-temp-hour');
+        let maximumHour = $('#max-temp-hour');
         maximumHour.html(' at ' + maxTempHour);
 
-        var humidityH = $('#humidity');
+        let humidityH = $('#humidity');
         humidityH.html(humidity + ' %');
 
-        var windSpeedWind = $('#wind-speed');
+        let windSpeedWind = $('#wind-speed');
         windSpeedWind.html(windSpeed + ' m/s');
 
-        var windDirectionWind = $('#wind-direction');
+        let windDirectionWind = $('#wind-direction');
         windDirectionWind.html(windDir);
 
-        var averageTemperature = $('#av-degrees');
+        let averageTemperature = $('#av-degrees');
         averageTemperature.html(averageTemp + '°');
 
-        var tomorrowDate = $('#date');
+        let tomorrowDate = $('#date');
         tomorrowDate.html((json.list[8].dt_txt).split(' ')[0]);
 
-        var tomorrowDay = $('#day');
-        var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-        var d = new Date(json.list[8].dt_txt);
-        var dayName = days[d.getDay()];
+        let tomorrowDay = $('#day');
+        let days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+        let d = new Date(json.list[8].dt_txt);
+        let dayName = days[d.getDay()];
         tomorrowDay.html(dayName);
 
-        var weather = (json.list[8].weather[0].main);
+        let weather = (json.list[8].weather[0].main);
         if (weather === 'Clouds') {
             $('#tomorrow-icon').attr('src', 'images/clouds.png');
         } else if (weather === 'Snow') {
@@ -141,32 +141,32 @@ var FillContent = (function() {
             $('#tomorrow-icon').attr('src', 'images/other.png');
         }
 
-        var tomorrowWeatherText = $('#weather-text');
+        let tomorrowWeatherText = $('#weather-text');
         tomorrowWeatherText.html(json.list[9].weather[0].description);
     });
 
-    var fillFiveDaysTab = (function(json) {
-        var allTemps = [];
-        for (var i = 0; i < 40; i += 1) {
+    let fillFiveDaysTab = (function(json) {
+        let allTemps = [];
+        for (let i = 0; i < 40; i += 1) {
             allTemps.push(json.list[i].main.temp);
         };
 
         for (let i = 0; i < 40; i += 8) {
 
-            var day = $(`#day-${i}`);
-            var d = new Date(json.list[i].dt_txt);
-            var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-            var dayName = days[d.getDay()];
+            let day = $(`#day-${i}`);
+            let d = new Date(json.list[i].dt_txt);
+            let days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+            let dayName = days[d.getDay()];
             $(day).html(dayName);
 
-            var date5days = $(`#date${i}`);
+            let date5days = $(`#date${i}`);
             $(`#date${i}`).html((json.list[i].dt_txt).split(' ')[0]);
 
-            var title5days = $(`#title${i}`);
+            let title5days = $(`#title${i}`);
             $(title5days).html(json.list[i].weather[0].description);
 
-            var minTemp5Days = $(`#tempMin${i}`);
-            var minT5d = 1000;
+            let minTemp5Days = $(`#tempMin${i}`);
+            let minT5d = 1000;
             for (let k = i; k < i + 8; k += 1) {
                 if (minT5d > allTemps[k]) {
                     minT5d = allTemps[k];
@@ -174,16 +174,16 @@ var FillContent = (function() {
             }
             $(minTemp5Days).html((minT5d.toFixed(0) - 273.15).toFixed(0) + '°');
 
-            var maxTemp5Days = $(`#tempMax${i}`);
-            var maxT5d = -1000;
-            for (var k = i; k < i + 8; k += 1) {
+            let maxTemp5Days = $(`#tempMax${i}`);
+            let maxT5d = -1000;
+            for (let k = i; k < i + 8; k += 1) {
                 if (maxT5d < allTemps[k]) {
                     maxT5d = allTemps[k];
                 }
             }
             $(maxTemp5Days).html((maxT5d.toFixed(0) - 273.15).toFixed(0) + '°');
 
-            var weather5days = (json.list[i].weather[0].main);
+            let weather5days = (json.list[i].weather[0].main);
             if (weather5days === 'Clouds') {
                 $(`#weather-icon${i}`).attr('src', 'images/clouds.png');
             } else if (weather5days === 'Snow') {
@@ -197,8 +197,8 @@ var FillContent = (function() {
             } else {
                 $(`#weather-icon${i}`).attr('src', 'images/other.png');
             }
-            var wind = $(`#wind${i}`);
-            var windSpeed = (json.list[i].wind.speed);
+            let wind = $(`#wind${i}`);
+            let windSpeed = (json.list[i].wind.speed);
             $(wind).html(windSpeed.toFixed(0) + ' m/s');
         }
 
